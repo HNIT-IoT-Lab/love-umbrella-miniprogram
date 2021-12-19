@@ -1,0 +1,13 @@
+/* pages/activity/activity.wxss */
+.sign-up-btn {
+    width: 100vw;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 60rpx;
+    text-align: center;
+    background: red;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

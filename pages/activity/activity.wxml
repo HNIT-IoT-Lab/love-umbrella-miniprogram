@@ -1,0 +1,6 @@
+<!--pages/activity/activity.wxml-->
+<text>活动详情页面,当前活动ID：{{activityid}}</text>
+
+<view class="sign-up-btn" bindtap="signUpEvent">
+    报名
+</view>

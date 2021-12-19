@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "navbar": "../../components/navbar/navbar",
+    "activity-list":"../../components/activityList/activityList"
+  },
+  "navigationBarTitleText": "志愿活动",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle":"dark"
+}

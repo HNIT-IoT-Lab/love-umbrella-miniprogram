@@ -1,0 +1,14 @@
+<!--components/activityList/activityList.wxml-->
+<view class="list">
+    <scroll-view scroll-y="true" class="scroll-box">
+          <view class="scroll-item" wx:for="{{list}}" wx:key="index" bindtap="activityInfo" data-activityid="{{item.id}}">
+            <view class="card">
+              <image src="{{item.activityImg}}"></image>
+              <view>{{item.activityName}}</view>
+              <view>{{item.activityAddress}}</view>
+              <view>活动时间: {{item.startTime}}至{{item.endTime}}</view>
+              <view>活动描述: {{item.description}}</view>
+            </view>
+          </view>
+    </scroll-view>
+</view>

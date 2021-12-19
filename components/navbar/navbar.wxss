@@ -1,0 +1,18 @@
+/* components/navbar/navbar.wxss */
+.navbar {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.navbar .item {
+    flex: 1;
+    text-align: center;
+    height: 60rpx;
+    padding-top: 10rpx;
+}
+
+.activity {
+    font-weight: 1000;
+    background-color: gray;
+}

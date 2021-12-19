@@ -1,0 +1,6 @@
+<!--pages/home/home.wxml-->
+<swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}">
+    <swiper-item wx:for="{{list}}" wx:key="index">
+        <image src="{{item.image_url}}" mode="widthFix" style="width: 750rpx;"></image>
+    </swiper-item>
+</swiper>

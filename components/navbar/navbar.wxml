@@ -1,0 +1,8 @@
+<!--components/navbar/navbar.wxml-->
+<mp-sticky offset-top="32">
+    <view class="navbar">
+        <view wx:for="{{list}}" wx:key="index" class="item {{current===index?'activity':''}}" bindtap="handleTap" data-id="{{index}}">
+            {{item}}
+        </view>
+    </view>
+</mp-sticky>

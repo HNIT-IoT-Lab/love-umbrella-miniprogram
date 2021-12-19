@@ -1,0 +1,12 @@
+<!--pages/activity/activity.wxml-->
+<navbar list="{{navbarList}}" bindselectEvent="handleSelect">
+</navbar>
+<activity-list wx:if="{{current===0}}" list="{{activitiesInRecruiting}}">
+</activity-list>
+<activity-list wx:if="{{current===1}}" list="{{activitiesInProgress}}">
+</activity-list>
+<activity-list wx:if="{{current===2}}" list="{{activitiesHaveEnded}}">
+</activity-list>
+
+
+

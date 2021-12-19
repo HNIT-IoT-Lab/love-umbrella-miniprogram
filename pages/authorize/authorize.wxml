@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" type="primary"> 授权昵称和头像 </button>
+      <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo" type="primary"> 授权昵称和头像 </button>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+</view>

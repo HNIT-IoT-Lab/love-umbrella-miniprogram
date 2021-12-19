@@ -1,0 +1,7 @@
+<!--pages/center/center.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+  </view>
+</view>

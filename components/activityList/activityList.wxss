@@ -1,0 +1,14 @@
+/* components/activityList/activityList.wxss */
+.scroll-box {
+    height: 1050rpx;
+}
+
+.scroll-box .scroll-item {
+    height: 750rpx;
+}
+.card  {
+    margin: 10rpx;
+    padding: 10rpx;
+    border-radius: 10rpx;
+    width: 100vw;
+}
