@@ -1,13 +1,23 @@
 <!--pages/telform/telform.wxml-->
-<mp-form-page title="表单Title" subtitle="表单SubTitle">
-        <mp-cells title="获取手机号">
+<mp-form-page title="手机号绑定">
+        <mp-cells title="绑定手机号">
             <mp-cell prop="mobile" title="手机号" ext-class="weui-cell_vcode">
-                <input bindinput="formInputChange" placeholder="请输入手机号"/>
+                <input class="weui-input" type="number" bindinput="formInputChange" placeholder="请输入手机号"/>
+            </mp-cell>
+            <mp-cell prop="code" title="验证码" ext-class="weui-cell_vcode">
+                <input class="weui-input" type="number" bindinput="formInputChange" placeholder="验证码"/>
                 <!-- footer表示在这个cell的最左边 -->
-                <view slot="footer" class="weui-vcode-btn">获取验证码</view>
+                <button bindtap="sendCode" slot="footer" class="weui-vcode-btn weui-cell__control weui-btn weui-btn_default" disabled="{{hasSendCode}}">{{hasSendCode===true ? countDownNum + "s后重新发送": "发送验证码" }}</button>
             </mp-cell>
         </mp-cells>
     <view>
-        <button type="primary" bindtap="bindtel">绑定手机号</button>
+        <button id="showToast" rule="button" type="primary" bindtap="bindtel" class="weui-btn weui-btn_default" >授权</button>
     </view>
 </mp-form-page>
+
+<view>
+    <view id="toast" rule="alert" class="weui-toast" wx:if="{{state}}">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <p class="weui-toast__content">{{toastMessage}}</p>
+    </view>
+</view>
