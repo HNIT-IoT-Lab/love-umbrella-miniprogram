@@ -1,14 +1,19 @@
 // pages/telform/telform.js
+import request from "../../utils/request"
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        state: String,
+        showToast: false,
         toastMessage: String,
+        state: "success",
         hasSendCode: false,
-        countDownNum: 60
+        countDownNum: 60,
+        phoneNumber: "",
+        code: ""
 
     },
 
@@ -75,40 +80,91 @@ Page({
     closeToast() {
         setTimeout(()=>{
             this.setData({
-                state: null
+                showToast: false
             })
         },1500)
     },
 
-    formInputChange(evt) {
-        console.log(evt.detail.value)
+    showToast(message,state) {
+        this.setData({
+            showToast: true,
+            toastMessage: message,
+            state: state
+        })
+        this.closeToast()
+    },
+
+    phoneInputChange(evt) {
+        // 将input框内的数据实时进行记录
+        this.setData({
+            phoneNumber:evt.detail.value
+        })
+    },
+
+    codeInputChange(evt) {
+        // 将input框内的数据实时进行记录
+        this.setData({
+            code:evt.detail.value
+        })
     },
 
     bindtel() {
-        console.log('绑定手机号')
-        this.setData({
-            state: "success",
-            toastMessage: "绑定成功"
-        })
-        this.closeToast()
-        // 跳转到首页
-        // wx.navigateBack({
-        //   delta: 2
-        // })
+        console.log('点击了绑定手机号')
+        console.log('输入的手机号：'+ this.data.phoneNumber)
+        console.log('输入的验证码：'+ this.data.code)
+        // 首先本地进行校验
+        if(wx.getStorageSync('phone') && wx.getStorageSync('phone')===this.data.phoneNumber) {
+            if(wx.getStorageSync('code') && wx.getStorageSync('code')===this.data.code) {
+                console.log('和本地验证码相符')
+                ///  TODO 调用绑定接口
+                // 发送绑定手机号的请求
+                this.showToast("绑定成功","success")
+                // 跳转到首页
+                // wx.navigateBack({
+                //   delta: 2
+                // })
+            } else {
+                this.showToast("验证码有误","fail")
+            }
+        } else {
+            this.showToast("验证码还未发送","fail")
+        }
     },
 
     sendCode(evt) {
         console.log(evt)
-        this.setData({
-            hasSendCode:true
+        /// TODO 调用发送验证码API
+        request({
+            url: "miniProgram/sendCode",
+            method: "POST",
+            data: {
+                "phone": this.data.phoneNumber
+            }
+        }).then(res => {
+            console.log('发送验证码请求')
+            if(res.code === 200) {
+                // 本地保存验证码，用于本地校验
+                wx.setStorageSync('phone', this.data.phoneNumber)
+                wx.setStorageSync('code', res.data)
+                this.showToast("验证码发送成功","success")
+                this.setData({
+                    hasSendCode:true
+                })
+                this.waitForInputCode()
+            } else  {
+                // 验证码发送失败
+                this.showToast("验证码发送失败","fail")
+            }
+        }).catch(err => {
+            console.log(err)
         })
-        this.waitForInputCode()
     },
 
     waitForInputCode() {
         console.log('验证码已发送，等待输入')
         var _this = this;
-        var countDownNum = _this.data.countDownNum;             // 获取倒计时初始值
+        // 获取倒计时初始值
+        var countDownNum = _this.data.countDownNum;
         var timer = setInterval(function() {
         countDownNum -= 1;
         _this.setData({
