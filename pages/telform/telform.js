@@ -153,7 +153,7 @@ Page({
                 this.waitForInputCode()
             } else  {
                 // 验证码发送失败
-                this.showToast("验证码发送失败","fail")
+                this.showToast(res.message,"fail")
             }
         }).catch(err => {
             console.log(err)
