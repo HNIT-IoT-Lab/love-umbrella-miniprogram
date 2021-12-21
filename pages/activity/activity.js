@@ -14,7 +14,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log('跳转到活动详情')
         this.setData({
             activityid:  options.activityid
         })
@@ -74,8 +73,23 @@ Page({
      */
     signUpEvent()  {
         authCheck(() =>  {
+            // 已经登录成功的回调
             console.log('报名成功')
             // 调用报名接口
+        },() => {
+            // 未授权的回调
+            wx.navigateTo({
+              url: '../authorize/authorize',
+            })
+        },() => {
+            // 未绑定手机号，跳转到绑定手机页面
+            wx.navigateTo({
+              url: '../telform/telform',
+            })
+        }
+        ,() => {
+            // 登录失败的回调
+            console.log('没有权限')
         })
     }
 })

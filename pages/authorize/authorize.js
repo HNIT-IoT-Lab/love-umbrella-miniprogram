@@ -9,6 +9,7 @@ Page({
         userInfo: {},
         hasUserInfo: false,
         canIUseGetUserProfile: false,
+        code: String
 
     },
 
@@ -16,6 +17,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log('跳转到手机绑定页面',options)
         if (wx.getUserProfile) {
             this.setData({
                 canIUseGetUserProfile: true
@@ -72,11 +74,46 @@ Page({
 
     },
     getUserProfile(e) {
+        let _this = this;
+        // 获取code
+        wx.login({
+            success: (res) => {
+                _this.setData({
+                    code: res.code
+                })
+            }
+        })
         // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
-        // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+        // 授权并注册
         wx.getUserProfile({
             desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
             success: (res) => {
+                console.log('成功获取到用户信息',res)
+                // 进行注册，然后跳转到绑定手机号页面
+                request({
+                    url: "miniProgram/registry",
+                    method: "POST",
+                    data: {
+                        "code": _this.data.code,
+                        "rawData": res.rawData,
+                        "signature": res.signature
+                    }
+                }).then(res => {
+                    if(res.code === 200) {
+                        // 注册成功
+                        console.log('注册成功')
+                        console.log(res.data);
+                        wx.setStorageSync('token', res.data.token)
+                        wx.setStorageSync('userInfo', res.data.userInfo)
+                        // 跳转到绑定手机的页面
+                        wx.navigateTo({
+                          url: '../telform/telform?delta=2'
+                        })
+                    } else {
+                        // 注册失败
+                        console.log('注册失败')
+                    }
+                })
                 this.setData({
                     userInfo: res.userInfo,
                     hasUserInfo: true

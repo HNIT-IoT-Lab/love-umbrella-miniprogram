@@ -14,7 +14,7 @@
             "list": [
                 {
                     "name": "",
-                    "pathName": "pages/telform/telform",
+                    "pathName": "pages/authorize/authorize",
                     "query": "",
                     "scene": null
                 }
