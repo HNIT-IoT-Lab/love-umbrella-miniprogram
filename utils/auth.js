@@ -37,7 +37,7 @@ function checkAuth(successCallBack,unauthorizedCallBack,unboundPhoneCallBack,fai
                             console.log(res)
                             if (res.code === 200) {
                                 wx.setStorageSync('userInfo', res.data)
-                                let phoneNumber = JSON.parse(wx.getStorageSync('userInfo')).phoneNumber
+                                let phoneNumber = res.data.phoneNumber
                                 console.log('登陆成功，手机号为:',phoneNumber)
                                 // 执行回调方法
                                 if(phoneNumber) {
