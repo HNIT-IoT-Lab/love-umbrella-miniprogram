@@ -13,8 +13,8 @@ Page({
         hasSendCode: false,
         countDownNum: 60,
         phoneNumber: "",
-        code: ""
-
+        code: "",
+        userInfo: ''
     },
 
     /**
@@ -73,19 +73,16 @@ Page({
 
     },
 
-    bindtel() {
-        console.log('绑定手机号')
-    },
 
     closeToast() {
-        setTimeout(()=>{
+        setTimeout(() => {
             this.setData({
                 showToast: false
             })
-        },1500)
+        }, 1500)
     },
 
-    showToast(message,state) {
+    showToast(message, state) {
         this.setData({
             showToast: true,
             toastMessage: message,
@@ -97,38 +94,67 @@ Page({
     phoneInputChange(evt) {
         // 将input框内的数据实时进行记录
         this.setData({
-            phoneNumber:evt.detail.value
+            phoneNumber: evt.detail.value
         })
     },
 
     codeInputChange(evt) {
         // 将input框内的数据实时进行记录
         this.setData({
-            code:evt.detail.value
+            code: evt.detail.value
         })
     },
 
     bindtel() {
         console.log('点击了绑定手机号')
-        console.log('输入的手机号：'+ this.data.phoneNumber)
-        console.log('输入的验证码：'+ this.data.code)
+        console.log('输入的手机号：' + this.data.phoneNumber)
+        console.log('输入的验证码：' + this.data.code)
+        let that = this;
         // 首先本地进行校验
-        if(wx.getStorageSync('phone') && wx.getStorageSync('phone')===this.data.phoneNumber) {
-            if(wx.getStorageSync('code') && wx.getStorageSync('code')===this.data.code) {
+        if (wx.getStorageSync('phone') && wx.getStorageSync('phone') === this.data.phoneNumber) {
+            if (wx.getStorageSync('code') && wx.getStorageSync('code') === this.data.code) {
                 console.log('和本地验证码相符')
-                ///  TODO 调用绑定接口
-                // 发送绑定手机号的请求
-                this.showToast("绑定成功","success")
+                wx.login({
+                    success(res) {
+                        if (res.code) {
+                            console.log(res.code);
+                            //获得openID,并发给后端
+                            wx.request({
+                                url: "http://127.0.0.1:8080/miniProgram/saveUserPhoneNumber",
+                                data: {
+                                    code: res.code,
+                                    "PhoneNumber": that.data.phoneNumber
+                                },
+                                method: "POST",
+                                success: res => {
+                                    console.log(res);
+                                    //存在该用户直接跳转首页
+                                    wx.switchTab({
+                                        url: '../../pages/home/home',
+                                    })
+                                },
+                                fail: res => {
+                                    console.log(res);
+                                }
+                            })
+                        } else {
+                            console.log('登录失败！' + res.errMsg)
+                        }
+                    }
+                })
+
+                this.showToast("绑定成功", "success")
                 // 跳转到首页
                 // wx.navigateBack({
                 //   delta: 2
                 // })
             } else {
-                this.showToast("验证码有误","fail")
+                this.showToast("验证码有误", "fail")
             }
         } else {
-            this.showToast("验证码还未发送","fail")
+            this.showToast("验证码还未发送", "fail")
         }
+
     },
 
     sendCode(evt) {
@@ -142,18 +168,19 @@ Page({
             }
         }).then(res => {
             console.log('发送验证码请求')
-            if(res.code === 200) {
+            console.log(res)
+            if (res.code === 200) {
                 // 本地保存验证码，用于本地校验
                 wx.setStorageSync('phone', this.data.phoneNumber)
                 wx.setStorageSync('code', res.data)
-                this.showToast("验证码发送成功","success")
+                this.showToast("验证码发送成功", "success")
                 this.setData({
-                    hasSendCode:true
+                    hasSendCode: true
                 })
                 this.waitForInputCode()
-            } else  {
+            } else {
                 // 验证码发送失败
-                this.showToast(res.message,"fail")
+                this.showToast(res.message, "fail")
             }
         }).catch(err => {
             console.log(err)
@@ -165,21 +192,21 @@ Page({
         var _this = this;
         // 获取倒计时初始值
         var countDownNum = _this.data.countDownNum;
-        var timer = setInterval(function() {
-        countDownNum -= 1;
-        _this.setData({
-            countDownNum: countDownNum
-        })
-        if(countDownNum <= -1) {
-            //取消setInterval函数
-            clearInterval(timer);
-            // 重置数据，便于后续使用
+        var timer = setInterval(function () {
+            countDownNum -= 1;
             _this.setData({
-                countDownNum: 60,
-                hasSendCode: false
+                countDownNum: countDownNum
             })
+            if (countDownNum <= -1) {
+                //取消setInterval函数
+                clearInterval(timer);
+                // 重置数据，便于后续使用
+                _this.setData({
+                    countDownNum: 60,
+                    hasSendCode: false
+                })
 
-        }
+            }
         }, 1000)
     }
 })

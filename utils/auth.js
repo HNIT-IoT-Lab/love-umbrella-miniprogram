@@ -13,8 +13,9 @@ function checkAuth(successCallBack,unauthorizedCallBack,unboundPhoneCallBack,fai
     } else {
         wx.login({
             success: (res) => {
+                console.log(res.code)
                 // 成功获取到code
-                let code = res.code
+                let code = res.code;
                 request({
                     url: 'miniProgram/login',
                     data: {

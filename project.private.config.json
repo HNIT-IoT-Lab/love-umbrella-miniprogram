@@ -1,24 +1,36 @@
 {
-    "setting": {},
-    "condition": {
-        "plugin": {
-            "list": []
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "",
+          "pathName": "pages/authorize/authorize",
+          "query": "",
+          "scene": null
         },
-        "game": {
-            "list": []
+        {
+          "name": "pages/telform/telform",
+          "pathName": "pages/telform/telform",
+          "query": "",
+          "scene": null
         },
-        "gamePlugin": {
-            "list": []
-        },
-        "miniprogram": {
-            "list": [
-                {
-                    "name": "",
-                    "pathName": "pages/authorize/authorize",
-                    "query": "",
-                    "scene": null
-                }
-            ]
+        {
+          "name": "pages/telform/telform",
+          "pathName": "pages/telform/telform",
+          "query": "",
+          "scene": null
         }
+      ]
     }
+  }
 }

@@ -78,6 +78,7 @@ Page({
         // 获取code
         wx.login({
             success: (res) => {
+                console.log(res.code)
                 _this.setData({
                     code: res.code
                 })
@@ -98,7 +99,7 @@ Page({
                         "rawData": res.rawData,
                         "signature": res.signature
                     }
-                }).then(res => {
+                }).then(res => {            
                     if(res.code === 200) {
                         // 注册成功
                         console.log('注册成功')
