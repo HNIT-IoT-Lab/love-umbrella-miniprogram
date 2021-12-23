@@ -114,40 +114,26 @@ Page({
         if (wx.getStorageSync('phone') && wx.getStorageSync('phone') === this.data.phoneNumber) {
             if (wx.getStorageSync('code') && wx.getStorageSync('code') === this.data.code) {
                 console.log('和本地验证码相符')
-                wx.login({
-                    success(res) {
-                        if (res.code) {
-                            console.log(res.code);
-                            //获得openID,并发给后端
-                            wx.request({
-                                url: "http://127.0.0.1:8080/miniProgram/saveUserPhoneNumber",
-                                data: {
-                                    code: res.code,
-                                    "PhoneNumber": that.data.phoneNumber
-                                },
-                                method: "POST",
-                                success: res => {
-                                    console.log(res);
-                                    //存在该用户直接跳转首页
-                                    wx.switchTab({
-                                        url: '../../pages/home/home',
-                                    })
-                                },
-                                fail: res => {
-                                    console.log(res);
-                                }
-                            })
-                        } else {
-                            console.log('登录失败！' + res.errMsg)
-                        }
+                request({
+                    url: "miniProgram/saveUserPhoneNumber",
+                    method: "POST",
+                    data: {
+                        "token": wx.getStorageSync('token'),
+                        "phone": that.data.phoneNumber
                     }
+                }).then(res => {
+                    if (res.code == 200) {
+                        console.log(res);
+                        //存入即跳转首页
+                        this.showToast("绑定成功", "success")
+                        wx.switchTab({
+                            url: '../../pages/home/home',
+                        })
+                    }
+                }).catch(err => {
+                    console.log(err)
                 })
 
-                this.showToast("绑定成功", "success")
-                // 跳转到首页
-                // wx.navigateBack({
-                //   delta: 2
-                // })
             } else {
                 this.showToast("验证码有误", "fail")
             }
