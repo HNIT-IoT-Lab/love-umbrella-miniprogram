@@ -1,6 +1,26 @@
 <!--pages/activity/activity.wxml-->
-<text>活动详情页面,当前活动ID：{{activityid}}</text>
 
-<view class="sign-up-btn" bindtap="signUpEvent">
-    报名
+<view class="primary-info-box">
+    <image src="{{activityInfo.activityImg}}" mode="widthFix"></image>
+    <view class="title">{{activityInfo.activityName}}</view>
+    <view class="item weui-flex">
+        <view class="left">
+            ·日期
+        </view>
+        <view class="weui-flex__item"></view>
+        <view class="right">
+            {{activityInfo.startTime}} - {{activityInfo.endTime}}
+        </view>
+    </view>
+</view>
+
+<view wx:if="{{!alreadySignUp}}" class="btn sign-up-btn weui-btn_default" bindtap="signUpEvent">我要报名</view>
+<view wx:else="" class="already-sign-up-btn btn weui-btn_default  weui-btn_disabled">已报名</view>
+
+<view>
+    <view class="weui-toast" wx:if="{{showToast}}">
+        <i wx:if="{{state=='success'}}" class="weui-icon_toast weui-icon-success-no-circle"></i>
+        <i wx:else class="weui-icon_toast weui-icon-warn"></i>
+        <p class="weui-toast__content">{{toastMessage}}</p>
+    </view>
 </view>

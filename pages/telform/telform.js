@@ -119,7 +119,7 @@ Page({
                     method: "POST",
                     data: {
                         "token": wx.getStorageSync('token'),
-                        "phone": that.data.phoneNumber
+                        "PhoneNumber": that.data.phoneNumber
                     }
                 }).then(res => {
                     if (res.code == 200) {
@@ -129,6 +129,8 @@ Page({
                         wx.switchTab({
                             url: '../../pages/home/home',
                         })
+                    } else {
+                        this.showToast(res.message, "fail")
                     }
                 }).catch(err => {
                     console.log(err)

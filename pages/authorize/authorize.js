@@ -7,8 +7,6 @@ Page({
      */
     data: {
         userInfo: {},
-        hasUserInfo: false,
-        canIUseGetUserProfile: false,
         code: String
 
     },
@@ -18,11 +16,6 @@ Page({
      */
     onLoad: function (options) {
         console.log('跳转到手机绑定页面',options)
-        if (wx.getUserProfile) {
-            this.setData({
-                canIUseGetUserProfile: true
-            })
-        }
     },
 
     /**
@@ -78,7 +71,7 @@ Page({
         // 获取code
         wx.login({
             success: (res) => {
-                console.log(res.code)
+                console.log('获得code')
                 _this.setData({
                     code: res.code
                 })
@@ -99,7 +92,7 @@ Page({
                         "rawData": res.rawData,
                         "signature": res.signature
                     }
-                }).then(res => {            
+                }).then(res => {
                     if(res.code === 200) {
                         // 注册成功
                         console.log('注册成功')

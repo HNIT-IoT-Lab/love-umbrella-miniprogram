@@ -1,5 +1,6 @@
 // pages/activity/activity.js
 import authCheck from "../../utils/auth"
+import request from "../../utils/request"
 
 Page({
 
@@ -7,7 +8,12 @@ Page({
      * 页面的初始数据
      */
     data: {
-        activityid: Number
+        activityid: Number,
+        alreadySignUp: false,
+        activityInfo: Object,
+        showToast: false,
+        state: "success",
+        toastMessage: String
     },
 
     /**
@@ -17,6 +23,7 @@ Page({
         this.setData({
             activityid:  options.activityid
         })
+        this.fetchData()
     },
 
     /**
@@ -68,6 +75,50 @@ Page({
 
     },
 
+    closeToast() {
+        setTimeout(()=>{
+            this.setData({
+                showToast: false
+            })
+        },1500)
+    },
+
+    showToast(message,state) {
+        this.setData({
+            showToast: true,
+            toastMessage: message,
+            state: state
+        })
+        this.closeToast()
+    },
+
+    fetchData() {
+        let _this = this
+        // 获取活动数据
+        request({
+            url: "volunteerActivity/getActivityInfo",
+            data: {
+                "id": _this.data.activityid
+            }
+        }).then(res => {
+            console.log(res)
+            if(res.code === 200) {
+                _this.setData({
+                    activityInfo: res.data
+                })
+            } else {
+                // 数据请求失败
+                showToast(res.message,"fail")
+            }
+        }).catch(err => {
+            // 出现异常
+            showToast("网络异常","fail")
+            console.log(err)
+        })
+
+        // 获取用户是否报名的数据
+    },
+
     /**
      * 志愿者报名
      */
@@ -91,5 +142,5 @@ Page({
             // 登录失败的回调
             console.log('没有权限')
         })
-    }
+    },
 })

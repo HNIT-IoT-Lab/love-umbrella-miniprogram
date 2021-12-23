@@ -1,13 +1,46 @@
 /* pages/activity/activity.wxss */
-.sign-up-btn {
-    width: 100vw;
-    height: 90rpx;
-    line-height: 90rpx;
-    font-size: 60rpx;
+.btn {
+    width: 710rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
     text-align: center;
-    background: red;
-    color: white;
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 20rpx;
+    border-radius: 50rpx;
+    left: 20rpx;
+}
+
+.sign-up-btn {
+    background: #f96b67;
+    color: white;
+}
+
+.primary-info-box {
+    width: 710rpx;
+    background-color: #fefefe;
+    padding-left: 20rpx;
+    border-radius: 20rpx;
+}
+
+.primary-info-box image {
+    border-radius: 20rpx;
+    width: 710rpx;
+}
+
+.primary-info-box .title {
+    font-weight: 500;
+}
+
+.primary-info-box .item {
+    font-size: 24rpx;
+}
+
+.primary-info-box .item .left {
+    width: 70rpx;
+    color: gray;
+}
+
+.primary-info-box .item .right {
+    width: 520rpx;
 }
