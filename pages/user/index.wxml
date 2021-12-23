@@ -1,0 +1,74 @@
+<view class="user_info_wrap">
+  <view wx:if="{{userinfo.avatarUrl}}" class="user_img_wrap">
+    <image class="user_bg" src="{{userinfo.avatarUrl}}"></image>
+    <view class="user_info">
+      <image class="user_icon" src="{{userinfo.avatarUrl}}"></image>
+      <view class="user_name">{{userinfo.nickName}}</view>
+    </view>
+  </view>
+  <view wx:else class="user_btn">
+    <navigator url="/pages/login/index">登录</navigator>
+  </view>
+</view>
+<view class="user_content">
+
+  <view class="user_main">
+    <!-- 历史足迹 -->
+    <view class="history_wrap">
+      <navigator>
+        <view class="his_num">0</view>
+        <view class="his_name">借伞次数</view>
+      </navigator>
+      <navigator url="/pages/collect/index">
+        <view class="his_num">0</view>
+        <view class="his_name">还伞次数</view>
+      </navigator>
+      <navigator>
+        <view class="his_num">0</view>
+        <view class="his_name">超时次数</view>
+      </navigator>
+      <navigator>
+        <view class="his_num">0</view>
+        <view class="his_name">我的足迹</view>
+      </navigator>
+    </view>
+    <!-- 我的订单 -->
+    <view class="orders_wrap">
+      <view class="orders_title">我的历史记录</view>
+      <view class="order_content">
+        <navigator url="/pages/order/index?type=1">
+          <view class="iconfont icon-ding_dan"></view>
+          <view class="order_name">借伞记录</view>
+        </navigator>
+        <navigator url="/pages/order/index?type=2">
+          <view class="iconfont icon-fukuantongzhi"></view>
+          <view class="order_name">还伞记录</view>
+        </navigator>
+        <navigator url="/pages/order/index?type=3">
+          <view class="iconfont icon-receipt-address"></view>
+          <view class="order_name">待还记录</view>
+        </navigator>
+        <navigator>
+          <view class="iconfont icon-tuihuotuikuan_dianpu"></view>
+          <view class="order_name">超时记录</view>
+        </navigator>
+      </view>
+    </view>
+    <!-- 收货地址管理 -->
+    <view class="address_wrap">
+      <button open-type="feedback" class="btn">意见反馈</button>
+    </view>
+    <view class="address_wrap">
+      <button open-type="share" class="btn">把青协推荐给其他人</button>
+    </view>
+    <!-- 应用信息相关 -->
+    <view class="app_info_wrap">
+      <view class="app_info_item app_info_contact">
+        <text>联系青协管理员</text>
+        <text selectable>17670459756</text>
+      </view>
+      <navigator url="/pages/feedback/index" class="app_info_item">联系青协客服</navigator>
+      <view class="app_info_item">关于我们</view>
+    </view>
+  </view>
+</view>

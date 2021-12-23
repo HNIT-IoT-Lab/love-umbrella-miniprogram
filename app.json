@@ -5,13 +5,16 @@
         "pages/center/center",
         "pages/authorize/authorize",
         "pages/activity/activity",
-        "pages/telform/telform"
+        "pages/telform/telform",
+        "pages/user/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "Weixin",
-        "navigationBarTextStyle": "black"
+        "navigationBarBackgroundColor": "#eb4450",
+        "navigationBarTitleText": "青年志愿者服务平台",
+        "enablePullDownRefresh": true,
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#cccccc"
     },
     "style": "v2",
     "sitemapLocation": "sitemap.json",
@@ -31,6 +34,12 @@
             },
             {
                 "pagePath": "pages/center/center",
+                "text": "我的",
+                "iconPath": "./images/icon3-1.png",
+                "selectedIconPath": "./images/icon3-2.png"
+            },
+            {
+                "pagePath": "pages/user/index",
                 "text": "我的",
                 "iconPath": "./images/icon3-1.png",
                 "selectedIconPath": "./images/icon3-2.png"
