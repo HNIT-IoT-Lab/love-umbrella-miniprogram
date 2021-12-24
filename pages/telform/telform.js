@@ -124,12 +124,13 @@ Page({
                 }).then(res => {
                     if (res.code == 200) {
                         console.log(res);
-                        //存入即跳转首页
+                        //存入并跳转首页
                         this.showToast("绑定成功", "success")
                         wx.switchTab({
                             url: '../../pages/home/home',
                         })
                     } else {
+                        console.log(res);
                         this.showToast(res.message, "fail")
                     }
                 }).catch(err => {
