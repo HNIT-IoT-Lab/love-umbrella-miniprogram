@@ -154,7 +154,7 @@ Page({
         },() => {
             // 未绑定手机号，跳转到绑定手机页面
             wx.navigateTo({
-              url: '../telform/telform',
+              url: '../login/index',
             })
         }
         ,() => {

@@ -1,0 +1,112 @@
+.bg{
+  width: 100%;
+  height: 30rpx;
+  background-color: #edecf2;
+}
+.horizon{
+  display: flex;
+  flex-direction: row;
+}
+.vertical{
+  display: flex;
+  flex-direction: column;
+}
+.firstrow{
+  width: 100%;
+  height: 100rpx;
+  align-items: center;
+}
+.secondrow{
+  width: 100%;
+  height: 120rpx;
+  align-items: center;
+}
+.left{
+  margin-left: 40rpx;
+}
+.right{
+  margin-right: 20rpx;
+}
+.top{
+  margin-top: 30rpx;
+}
+.icon{
+  width: 40rpx;
+  height: 40rpx;
+}
+.input{
+  margin-left: 30rpx;
+  font-size: 32rpx;
+  color: gray;
+  flex-grow: 1;
+}
+.line{
+  width: 100%;
+  height: 3rpx;
+  background-color: #edecf2;
+}
+.picker{
+  margin-left: 30rpx;
+  width: 100rpx;
+  height: 100%;
+  font-size: 32rpx;
+  color: #222;
+}
+.arrow{
+  width: 10rpx;
+  height: 10rpx;
+  border: 4rpx solid #333;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(135deg);
+}
+
+.icon-ValidCode{
+  width: 180rpx;
+  height: 80rpx;
+  margin-right: 20rpx; 
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.declare{
+  font-size: 30rpx;
+  color: #666666;
+}
+/* 获取验证码 倒计时 按钮 如果设置宽高不生效的话，删除app.js里面的 "style": "v2",*/
+
+.button{
+  width: 200rpx;
+  height: 65rpx;
+  color: #449f45;
+  border: 3rpx solid #449f45;
+  border-radius: 80rpx;
+  font-size: 24rpx;
+  margin-right: 20rpx; 
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-align: center;
+}
+/* 确定按钮 */
+.sureBtn{
+  margin-top: 70rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+.exitBtn{
+  display: block;
+  position: relative;
+  left: 50%;
+  margin-left: -92px;
+  margin-top: 20rpx;
+  width: 184px;
+  height: 40px;
+  font: 18px "microsoft yahei";
+  font-weight: 540;
+  text-align: center;
+  color: #07c160;
+  padding: 8px 24px;
+  background-color: #f8f8f8;
+  border-radius: 8rpx;
+}

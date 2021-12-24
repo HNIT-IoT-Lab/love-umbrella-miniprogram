@@ -1,0 +1,53 @@
+<view class='bg'></view>
+
+<view class='horizon firstrow'>
+  <image class='left icon' src='../../images/icon-name.png'></image>
+  <input value="{{userName}}" class='input' bindinput='userNameInput' placeholder='请输入您的真实姓名'></input>
+</view>
+
+<view class='line'></view>
+
+
+<view class='horizon firstrow'>
+  <image class='left icon' src='../../images/icon-mobile.png'></image>
+  <input value="{{phoneNumber}}" class='input' bindinput='phoneNumberInput' placeholder='请输入您的手机号'></input>
+</view>
+
+<view class='line'></view>
+
+<view class='horizon secondrow'>
+  <image class='left icon' src='../../images/icon-credno.png'></image>
+  <input value="{{qqNumber}}" class='input' bindinput='qqNumberInput' placeholder='请输入您qq号码'></input>
+</view>
+
+<view class='line'></view>
+
+<view class='horizon firstrow'>
+  <image class='left icon' src='../../images/icon-pic-code.png'></image>
+  <input value="{{studentNumber}}" class='input' bindinput='studentNumberInput' placeholder='请输入学号'></input>
+</view>
+
+<view class='line'></view>
+
+<view class='line'></view>
+
+<view class='horizon firstrow'>
+  <image class='left icon' src='../../images/icon-sms-code.png'></image>
+  <input class='input' bindinput='codeInputChange' placeholder='请输入手机验证码'></input>
+  <button class='button' disabled="{{disabled}}" bindtap='sendCode'>{{time}}</button>
+</view>
+
+<view class='bg'></view>
+
+<view>
+  <button class='sureBtn' type='primary' bindtap='bindtel'>授权</button>
+  <navigator class='exitBtn' target="miniProgram" open-type="exit" hover-class="none">
+    取消
+  </navigator>
+</view>
+<view class='vertical'>
+  <text class='top left'>说明</text>
+  <text
+    class='top left right declare'>1、请输入真实准确的“姓名”、“手机号”、“学号”。信息用来确定您的身份，我们会妥善保管您的信息;
+    \n2、如有疑问、请在我的主页联系青协客服;</text>
+</view>
