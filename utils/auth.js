@@ -1,10 +1,30 @@
 import request from "../utils/request"
 
 function checkAuth(successCallBack,unauthorizedCallBack,unboundPhoneCallBack,failCallBack) {
+    // 检查本地的token是否已经过期
+    request({
+        url: "miniProgram/checkLoginState",
+        method: "POST",
+        data: {
+            "token": wx.getStorageSync('token')
+        }
+    }).then(res => {
+        // 只有没有过期才不会删除token
+        if(res.code !== 200 || res.data == false) {
+            console.log('token已过期,即将重新登录')
+            // 删除本地的token等信息
+            wx.removeStorageSync('token');
+            wx.removeStorageSync('userInfo');
+            wx.removeStorageSync('phone');
+        }
+    }).catch(err => {
+        console.log('出现异常：',err)
+    })
+
     // 判断是否登录
     if (wx.getStorageSync('token')) {
         // 用户已经登录
-        if(wx.getStorageSync('phoneNumber')) {
+        if(wx.getStorageSync('phone')) {
             successCallBack()
         } else {
             // 跳转到绑定手机页面
@@ -43,7 +63,7 @@ function checkAuth(successCallBack,unauthorizedCallBack,unboundPhoneCallBack,fai
                                 // 执行回调方法
                                 if(phoneNumber) {
                                     // 绑定过手机号
-                                    wx.setStorageSync('phoneNumber', phoneNumber)
+                                    wx.setStorageSync('phone', phoneNumber)
                                     successCallBack()
                                 } else {
                                     // 没绑定手机号

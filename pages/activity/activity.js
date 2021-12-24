@@ -101,7 +101,6 @@ Page({
                 "id": _this.data.activityid
             }
         }).then(res => {
-            console.log(res)
             if(res.code === 200) {
                 _this.setData({
                     activityInfo: res.data
@@ -117,15 +116,35 @@ Page({
         })
 
         // 获取用户是否报名的数据
+        if(wx.getStorageSync('token')) {
+            request({
+                url: "signUpRecord/checkState",
+                method: "POST",
+                data: {
+                    "token": wx.getStorageSync('token'),
+                    "activityId": this.data.activityid
+                }
+            }).then(res => {
+                if(res.code === 200) {
+                    this.setData({
+                        alreadySignUp: res.data
+                    })
+                } else {
+                    this.showToast(res.message,"fail")
+                }
+            })
+        }
     },
 
     /**
      * 志愿者报名
      */
     signUpEvent()  {
+        let _this = this
         authCheck(() =>  {
             // 已经登录成功的回调
             console.log('报名成功')
+            _this.doSignUp()
             // 调用报名接口
         },() => {
             // 未授权的回调
@@ -144,10 +163,39 @@ Page({
         })
     },
 
+    /**
+     * 打开打电话功能
+     */
     phoneCall(evt) {
         console.log(evt)
         wx.makePhoneCall({
             phoneNumber: evt.currentTarget.dataset.phonenumber
+        })
+    },
+
+    doSignUp() {
+        request({
+            url: "signUpRecord/signUpActivity",
+            method: "POST",
+            data: {
+                "token": wx.getStorageSync('token'),
+                "activityId": this.data.activityid
+            }
+        }).then(res => {
+            console.log(res)
+            if(res.code === 200) {
+                this.showToast("报名成功","success")
+                this.setData({
+                    alreadySignUp: true
+                })
+            } else {
+                if(res.code === 601) {
+                    this.setData({
+                        alreadySignUp: true
+                    })
+                }
+                this.showToast(res.message,"fail")
+            }
         })
     }
 })
