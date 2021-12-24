@@ -1,21 +1,112 @@
 <!--pages/activity/activity.wxml-->
 
-<view class="primary-info-box">
-    <image src="{{activityInfo.activityImg}}" mode="widthFix"></image>
-    <view class="title">{{activityInfo.activityName}}</view>
-    <view class="item weui-flex">
-        <view class="left">
-            ·日期
+<view class="container-box">
+    <scroll-view scroll-y="true">
+        <view class="primary-info-box">
+            <image src="{{activityInfo.activityImg}}" mode="widthFix"></image>
+            <view class="title">{{activityInfo.activityName}}</view>
+            <view class="item weui-flex">
+                <view class="left iconfont icon-activity">
+                    日期
+                </view>
+                <view class="weui-flex__item"></view>
+                <view class="right">
+                    <!-- {{activityInfo.startTime}} - {{activityInfo.endTime}} -->
+                    2021/12/22-10:20
+                </view>
+            </view>
+            <view class="item weui-flex">
+                <view class="left iconfont icon-coordinates">
+                    地址
+                </view>
+                <view class="weui-flex__item"></view>
+                <view class="right">
+                    {{activityInfo.activityAddress}}
+                </view>
+            </view>
+            <view class="item weui-flex">
+                <view class="left iconfont icon-people">
+                    联系人
+                </view>
+                <view class="weui-flex__item"></view>
+                <view class="right">
+                    {{activityInfo.createBy}}
+                </view>
+            </view>
+            <view class="item weui-flex">
+                <view class="left iconfont icon-mobilephone">
+                    联系电话
+                </view>
+                <view class="weui-flex__item"></view>
+                <view class="right" bindtap="phoneCall" data-phonenumber="133313131">
+                    13999424681
+                </view>
+            </view>
         </view>
-        <view class="weui-flex__item"></view>
-        <view class="right">
-            {{activityInfo.startTime}} - {{activityInfo.endTime}}
+
+        <view class="details-info-box">
+            <view class="title iconfont icon-document">活动详情</view>
+            <view class="text">{{activityInfo.description}}</view>
         </view>
-    </view>
+
+        <view class="sign-up-info-box item weui-flex">
+            <view class="title iconfont icon-group">报名人数</view>
+            <view class="process">{{activityInfo.numberOfAttendees}}/{{activityInfo.numberOfNeed}}</view>
+        </view>
+
+        <view class="sign-up-info-box">
+            <view class="title iconfont icon-barrage">最新报名</view>
+            <view class="sign-up-list">
+                <view class="item">
+                    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
+                    <view class="date">2021-12-24</view>
+                </view>
+
+                <view class="item">
+                    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
+                    <view class="date">2021-12-24</view>
+                </view>
+
+                <view class="item">
+                    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
+                    <view class="date">2021-12-24</view>
+                </view>
+
+                <view class="item">
+                    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
+                    <view class="date">2021-12-24</view>
+                </view>
+
+<view class="item">
+    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
+    <view class="date">2021-12-24</view>
+</view>
+
+<view class="item">
+    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
+    <view class="date">2021-12-24</view>
+</view>
+
+<view class="item">
+    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
+    <view class="date">2021-12-24</view>
+</view>
+
+<view class="item">
+    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
+    <view class="date">2021-12-24</view>
+</view>
+
+            </view>
+        </view>
+
+    </scroll-view>
 </view>
 
 <view wx:if="{{!alreadySignUp}}" class="btn sign-up-btn weui-btn_default" bindtap="signUpEvent">我要报名</view>
 <view wx:else="" class="already-sign-up-btn btn weui-btn_default  weui-btn_disabled">已报名</view>
+
+
 
 <view>
     <view class="weui-toast" wx:if="{{showToast}}">

@@ -143,4 +143,11 @@ Page({
             console.log('没有权限')
         })
     },
+
+    phoneCall(evt) {
+        console.log(evt)
+        wx.makePhoneCall({
+            phoneNumber: evt.currentTarget.dataset.phonenumber
+        })
+    }
 })

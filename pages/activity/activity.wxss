@@ -16,31 +16,123 @@
     color: white;
 }
 
+.container-box {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container-box scroll-view {
+    height: 1104rpx;
+}
+
 .primary-info-box {
     width: 710rpx;
     background-color: #fefefe;
-    padding-left: 20rpx;
-    border-radius: 20rpx;
+    margin-left: 20rpx;
+    border-radius: 5rpx;
+    margin-top: 20rpx;
+    padding-bottom: 15rpx;
+
 }
 
 .primary-info-box image {
-    border-radius: 20rpx;
-    width: 710rpx;
+    border-radius: 5rpx;
+    width: 100%;
 }
 
 .primary-info-box .title {
-    font-weight: 500;
+    line-height: 35rpx;
+    font-size: 35rpx;
+    font-weight: 800;
+    margin: 10rpx;
+    margin-bottom: 20rpx;
 }
 
 .primary-info-box .item {
-    font-size: 24rpx;
+    font-size: 25rpx;
+    margin-top: 20rpx;
+    margin-left: 10rpx;
+    margin-right: 10rpx;
 }
 
 .primary-info-box .item .left {
-    width: 70rpx;
-    color: gray;
+    color: #a5a5a5;
 }
 
 .primary-info-box .item .right {
-    width: 520rpx;
+    margin-left: auto;
+    text-align: right;
+    padding-right: 15rpx;
+}
+
+.details-info-box {
+    width: 710rpx;
+    background-color: #fefefe;
+    margin-left: 20rpx;
+    border-radius: 5rpx;
+    margin-top: 20rpx;
+    padding: 6rpx;
+}
+
+.details-info-box .title {
+    line-height: 35rpx;
+    font-size: 35rpx;
+    font-weight: 800;
+    margin: 10rpx;
+    margin-bottom: 20rpx;
+    color: #8cd7d3;
+}
+
+.details-info-box .text {
+    font-size: 28rpx;
+    margin-left: 10rpx;
+}
+
+.sign-up-info-box {
+    width: 710rpx;
+    background-color: #fefefe;
+    margin-left: 20rpx;
+    border-radius: 5rpx;
+    margin-top: 20rpx;
+    padding: 6rpx;
+}
+
+.sign-up-info-box .title{
+    line-height: 35rpx;
+    font-size: 35rpx;
+    font-weight: 800;
+    margin: 15rpx;
+    margin-bottom: 20rpx;
+    color: #8cd7d3;
+}
+
+.sign-up-info-box .process {
+    margin: 15rpx;
+    margin-left: auto;
+}
+
+.sign-up-list {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.sign-up-list .item {
+    width: 20%;
+    text-align: center;
+}
+
+.sign-up-list .item image{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.sign-up-list .item .date{
+    width: 100rpx;
+    font-size: 18rpx;
+    text-align: center;
+    margin-left: 20rpx;
 }

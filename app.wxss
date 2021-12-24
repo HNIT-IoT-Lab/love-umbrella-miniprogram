@@ -1,8 +1,10 @@
 /**app.wxss**/
 /* 全局引入微信组件的样式 */
 @import  './miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
-/* icon */ 
+/* icon */
 @import "./styles/iconfont.wxss";
+@import "./styles/activity.wxss";
+
 .container {
   height: 100%;
   display: flex;
