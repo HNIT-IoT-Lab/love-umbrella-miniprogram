@@ -57,45 +57,10 @@
         <view class="sign-up-info-box">
             <view class="title iconfont icon-barrage">最新报名</view>
             <view class="sign-up-list">
-                <view class="item">
-                    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
-                    <view class="date">2021-12-24</view>
+                <view class="item" wx:for="{{signUpList}}" wx:key="index">
+                    <image mode="widthFix" src="{{item.avatar}}"></image>
+                    <view class="date">{{item.date}}</view>
                 </view>
-
-                <view class="item">
-                    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
-                    <view class="date">2021-12-24</view>
-                </view>
-
-                <view class="item">
-                    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
-                    <view class="date">2021-12-24</view>
-                </view>
-
-                <view class="item">
-                    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
-                    <view class="date">2021-12-24</view>
-                </view>
-
-<view class="item">
-    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
-    <view class="date">2021-12-24</view>
-</view>
-
-<view class="item">
-    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
-    <view class="date">2021-12-24</view>
-</view>
-
-<view class="item">
-    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
-    <view class="date">2021-12-24</view>
-</view>
-
-<view class="item">
-    <image mode="widthFix" src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eplWzPJuvFyWeY5KjG5mOv6a7YNHNDvyxCibSCv58iaxicjyjPD08FoicQDBibMoCF64urOjYFEicM5KTeQ/132"></image>
-    <view class="date">2021-12-24</view>
-</view>
 
             </view>
         </view>

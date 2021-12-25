@@ -13,7 +13,8 @@ Page({
         activityInfo: Object,
         showToast: false,
         state: "success",
-        toastMessage: String
+        toastMessage: String,
+        signUpList: Array
     },
 
     /**
@@ -115,7 +116,7 @@ Page({
             console.log(err)
         })
 
-        // 获取用户是否报名的数据
+        // 如果用户已经登录了，获取用户是否报名的数据
         if(wx.getStorageSync('token')) {
             request({
                 url: "signUpRecord/checkState",
@@ -130,10 +131,26 @@ Page({
                         alreadySignUp: res.data
                     })
                 } else {
-                    this.showToast(res.message,"fail")
+                    // 暂时不需要提示
+                    //this.showToast(res.message,"fail")
                 }
             })
         }
+
+        // 获取报名的人
+        request({
+            url: "volunteerActivity/getSignUpList",
+            data: {
+                "activityId": _this.data.activityid
+            }
+        }).then(res => {
+            console.log(res)
+            if(res.code === 200) {
+                _this.setData({
+                    signUpList: res.data
+                })
+            }
+        })
     },
 
     /**
@@ -188,6 +205,7 @@ Page({
                 this.setData({
                     alreadySignUp: true
                 })
+                this.fetchData()
             } else {
                 if(res.code === 601) {
                     this.setData({
