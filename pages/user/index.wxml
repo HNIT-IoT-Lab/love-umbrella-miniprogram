@@ -7,7 +7,7 @@
     </view>
   </view>
   <view wx:else class="user_btn">
-    <navigator url="/pages/login/index">登录</navigator>
+    <navigator url="/pages/authorize/authorize">登录</navigator>
   </view>
 </view>
 <view class="user_content">
@@ -17,19 +17,19 @@
     <view class="history_wrap">
       <navigator>
         <view class="his_num">0</view>
-        <view class="his_name">借伞次数</view>
+        <view class="his_name">志愿总时长</view>
       </navigator>
       <navigator url="/pages/collect/index">
         <view class="his_num">0</view>
+        <view class="his_name">志愿次数</view>
+      </navigator>
+      <navigator>
+        <view class="his_num">0</view>
+        <view class="his_name">借伞次数</view>
+      </navigator>
+      <navigator>
+        <view class="his_num">0</view>
         <view class="his_name">还伞次数</view>
-      </navigator>
-      <navigator>
-        <view class="his_num">0</view>
-        <view class="his_name">超时次数</view>
-      </navigator>
-      <navigator>
-        <view class="his_num">0</view>
-        <view class="his_name">我的足迹</view>
       </navigator>
     </view>
     <!-- 我的订单 -->
@@ -38,19 +38,15 @@
       <view class="order_content">
         <navigator url="/pages/order/index?type=1">
           <view class="iconfont icon-ding_dan"></view>
-          <view class="order_name">借伞记录</view>
+          <view class="order_name">志愿活动历史记录</view>
         </navigator>
         <navigator url="/pages/order/index?type=2">
           <view class="iconfont icon-fukuantongzhi"></view>
-          <view class="order_name">还伞记录</view>
+          <view class="order_name">借伞记录</view>
         </navigator>
         <navigator url="/pages/order/index?type=3">
           <view class="iconfont icon-receipt-address"></view>
-          <view class="order_name">待还记录</view>
-        </navigator>
-        <navigator>
-          <view class="iconfont icon-tuihuotuikuan_dianpu"></view>
-          <view class="order_name">超时记录</view>
+          <view class="order_name">还伞记录</view>
         </navigator>
       </view>
     </view>

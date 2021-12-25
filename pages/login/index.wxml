@@ -40,7 +40,7 @@
 <view class='bg'></view>
 
 <view>
-  <button class='sureBtn' type='primary' bindtap='bindtel'>授权</button>
+  <button class='sureBtn' type='primary' bindtap='bindtel'>注册</button>
   <navigator class='exitBtn' target="miniProgram" open-type="exit" hover-class="none">
     取消
   </navigator>
@@ -50,4 +50,12 @@
   <text
     class='top left right declare'>1、请输入真实准确的“姓名”、“手机号”、“学号”。信息用来确定您的身份，我们会妥善保管您的信息;
     \n2、如有疑问、请在我的主页联系青协客服;</text>
+</view>
+<!-- 提示框 -->
+<view>
+    <view rule="alert" class="weui-toast" wx:if="{{showToast}}">
+        <i wx:if="{{state=='success'}}" class="weui-icon_toast weui-icon-success-no-circle"></i>
+        <i wx:else class="weui-icon_toast weui-icon-warn"></i>
+        <p class="weui-toast__content">{{toastMessage}}</p>
+    </view>
 </view>

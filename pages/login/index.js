@@ -5,9 +5,9 @@ import authCheck from "../../utils/auth"
 import request from "../../utils/request"
 Page({
   data: {
-    userName: '',//用户的真实姓名
+    userName: '', //用户的真实姓名
     qqNumber: '',
-    studentNumber: '',//学号
+    studentNumber: '', //学号
     time: '获取验证码',
     disabled: false,
     ischeckPhoneNumber: false,
@@ -17,7 +17,7 @@ Page({
     hasSendCode: false,
     countDownNum: 60,
     phoneNumber: "",
-    code: "",//手机验证码
+    code: "", //手机验证码
     userInfo: ''
   },
   // 用户名
@@ -48,9 +48,9 @@ Page({
   codeInputChange(e) {
     // 将input框内的数据实时进行记录
     this.setData({
-        code: e.detail.value
+      code: e.detail.value
     })
-},
+  },
   vertifyCodeInput(e) {
     this.setData({
       VerificationCode: e.detail.value
@@ -63,7 +63,7 @@ Page({
     let phoneNumber = this.data.phoneNumber;
     let qqNumber = this.data.qqNumber;
     let studentNumber = this.data.studentNumber;
-    let code=this.data.code;
+    let code = this.data.code;
     //用户名只能输入汉字
     if (!new RegExp("^[\u4E00-\u9FA5]+$").test(userName)) {
       wx.showModal({
@@ -121,48 +121,32 @@ Page({
       })
       return;
     }
-    if(!new RegExp("\\d{6}").test(code)){
-      wx.showModal({
-        title: '提示',
-        content: '验证码有误',
-        success: res => {
-          if (res.confirm) {
-            this.setData({
-              code: ''
-            })
-          } else {}
-        }
-      })
-    }
     //通过粗略的检查后返回true
     return true;
   },
   //将用户信息存入到数据库中
-  insertUserByToken() {
+  insertUserByToken(successCallBack, failCallBack, errCallBack) {
     request({
       url: "miniProgram/updateUserInfoByToken",
       method: "POST",
       data: {
         "token": wx.getStorageSync('token'),
         "phoneNumber": this.data.phoneNumber,
-        "userName":this.data.userName,
-        "qqNumber":this.data.qqNumber,
-        "studentNumber":this.data.studentNumber
+        "userName": this.data.userName,
+        "qqNumber": this.data.qqNumber,
+        "studentNumber": this.data.studentNumber
       }
     }).then(res => {
       if (res.code == 200) {
         console.log(res);
         //存入并跳转首页
-        this.showToast("绑定成功", "success")
-        wx.switchTab({
-          url: '../../pages/home/home',
-        })
+        successCallBack();
       } else {
         console.log(res);
-        this.showToast(res.message, "fail")
+        failCallBack(res);
       }
     }).catch(err => {
-      console.log(err)
+      errCallBack(err);
     })
   },
 
@@ -173,8 +157,7 @@ Page({
     console.log('点击了绑定手机号')
     console.log('输入的手机号：' + this.data.phoneNumber)
     console.log('输入的验证码：' + this.data.code)
-    let that = this;
-    if(!this.checkInfo()){
+    if (!this.checkInfo()) {
       //用户输入数据格式不正确返回
       console.log('用户输入数据格式不正确')
       return;
@@ -183,8 +166,24 @@ Page({
     if (wx.getStorageSync('phone') && wx.getStorageSync('phone') === this.data.phoneNumber) {
       if (wx.getStorageSync('code') && wx.getStorageSync('code') === this.data.code) {
         console.log('和本地验证码相符')
+        //验证通过
+        this.showToast("验证通过", "success")
         //将数据存入数据库中
-        this.insertUserByToken();
+        this.insertUserByToken(() => {
+          //成功的回调
+          this.showToast("绑定成功", "success")
+          setTimeout(()=>{
+            wx.switchTab({
+              url: '../../pages/home/home',
+            })
+          },1000)
+        }, (res) => {
+          //数据更行失败的回调
+          this.showToast(res.message, "fail")
+        }, (err) => {
+          //异常的回调
+          this.showToast(err.message, "fail")
+        });
       } else {
         this.showToast("验证码有误", "fail")
       }
@@ -194,7 +193,7 @@ Page({
 
   },
   sendCode(evt) {
-    if(!this.checkInfo()){
+    if (!this.checkInfo()) {
       //用户输入数据格式不正确返回
       console.log('用户输入数据格式不正确')
       return;
@@ -218,7 +217,7 @@ Page({
         this.setData({
           hasSendCode: true
         })
-       this.showToast("发送成功", "success");
+        this.showToast("发送成功", "success");
         //发送成功开始倒计时
         this.startCountDown(this.data.countDownNum)
       } else {
@@ -254,12 +253,8 @@ Page({
    * 发送验证码bindTap事件，按钮事件
    */
   tapSendVertifyCode: function (e) {
-    let userName = this.data.userName;
-    let phoneNumber = this.data.phoneNumber;
-    let qqNumber = this.data.qqNumber;
-    let studentNumber = this.data.studentNumber;
     //先简单检查输入信息是否合法
-    if (this.checkInfo(userName, phoneNumber, qqNumber, studentNumber, sureTaptThat) === true) {
+    if (this.checkInfo() === true) {
       var that = this;
       var currentTime = that.data.currentTime;
       that.startCountDown(currentTime);

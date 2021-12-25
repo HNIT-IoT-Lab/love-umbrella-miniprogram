@@ -82,9 +82,6 @@ function checkAuth(successCallBack,unauthorizedCallBack,unboundPhoneCallBack,fai
                 })
             }
         })
-
-
-
     }
 }
 
