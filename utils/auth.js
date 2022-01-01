@@ -16,6 +16,7 @@ function checkAuth(successCallBack,unauthorizedCallBack,unboundPhoneCallBack,fai
             wx.removeStorageSync('token');
             wx.removeStorageSync('userInfo');
             wx.removeStorageSync('phone');
+            wx.removeStorageSync('code');
         }
     }).catch(err => {
         console.log('出现异常：',err)

@@ -3,6 +3,33 @@ import request from "utils/request"
 App({
   //界面打开就尝试去后台拿到用户的信息
   onLaunch() {
+    if(wx.getStorageSync('token')) {
+        // 检查本地的token是否已经过期
+        request({
+            url: "miniProgram/checkLoginState",
+            method: "POST",
+            data: {
+                "token": wx.getStorageSync('token')
+            }
+        }).then(res => {
+            // 只有没有过期才不会删除token
+            if(res.code !== 200 || res.data == false) {
+                console.log('本地token已过期,将会被删除')
+                // 删除本地的token等信息
+                wx.removeStorageSync('token');
+                wx.removeStorageSync('userInfo');
+                wx.removeStorageSync('phone');
+                wx.removeStorageSync('code');
+            }
+        }).catch(err => {
+            // 如果因为网络等问题，请求发送失败，也要删除本地的token等信息
+            wx.removeStorageSync('token');
+            wx.removeStorageSync('userInfo');
+            wx.removeStorageSync('phone');
+            wx.removeStorageSync('code');
+            console.log('出现异常：',err)
+        })
+    }
     // 展示本地存储能力
     wx.login({
       success: (res) => {
@@ -31,26 +58,16 @@ App({
                       console.log(res)
                       if (res.code === 200) {
                           wx.setStorageSync('userInfo', res.data)
-                          // let phoneNumber = res.data.phoneNumber
-                          // console.log('登陆成功，手机号为:',phoneNumber)
-                          // // 执行回调方法
-                          // if(phoneNumber) {
-                          //     // 绑定过手机号
-                          //     wx.setStorageSync('phone', phoneNumber)
-                          //     successCallBack()
-                          // } else {
-                          //     // 没绑定手机号
-                          //     unboundPhoneCallBack()
-                          // }
+                          let phoneNumber = res.data.phoneNumber
+                          if(phoneNumber) {
+                              // 绑定过手机号
+                              wx.setStorageSync('phone', phoneNumber)
+                              successCallBack()
+                          }
                       }
                   })
-              } else if(res.code === 600) {
-                  // 用户未授权
-                  //unauthorizedCallBack()
               } else {
-                  // 登录失败
                   console.log("登录失败", res.message)
-                  //failCallBack()
               }
           })
       }
