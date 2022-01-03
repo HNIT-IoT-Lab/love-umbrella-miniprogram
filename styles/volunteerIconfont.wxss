@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'volunteerIconfont';
+  /* Project id 3113854 */
+  src: url('//at.alicdn.com/t/font_3113854_lkhi23rb6lq.woff2?t=1641094209791') format('woff2'),
+    url('//at.alicdn.com/t/font_3113854_lkhi23rb6lq.woff?t=1641094209791') format('woff'),
+    url('//at.alicdn.com/t/font_3113854_lkhi23rb6lq.ttf?t=1641094209791') format('truetype');
+}
+
+.volunteerIconfont {
+  font-family: "volunteerIconfont" !important;
+  font-size: 20px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-admin-manage:before {
+  content: "\e60e";
+}
+
+.icon-guanyuwomen:before {
+  content: "\e609";
+}
+
+.icon-yusan:before {
+  content: "\e667";
+}
+
+.icon-shenghuoyongpin-:before {
+  content: "\e78a";
+}
+
+.icon-zhiyuanzhefuwu:before {
+  content: "\e63c";
+}
+
+.icon-kefu:before {
+  content: "\e696";
+}
+
+.icon-ziyuanxhdpi-copy:before {
+  content: "\e60d";
+}
+
+.icon-yusan1:before {
+  content: "\e62e";
+}
+
+.icon-yusan2:before {
+  content: "\ecb3";
+}
+
+.icon-wode-zhiyuanzhe:before {
+  content: "\e605";
+}
+

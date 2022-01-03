@@ -45,7 +45,11 @@ Page({
                     console.log('注册成功')
                     console.log(res.data);
                     wx.setStorageSync('token', res.data.token)
-                    wx.setStorageSync('userInfo', res.data.userInfo)
+                    console.log('授权后的凭证为：\n');
+                    //注意这里存入的是字符串不是对象，但是wx不支持eval函数，需要转成对象后存入
+                    let JsonUserInfo=JSON.parse(res.data.userInfo);
+                    console.log(JsonUserInfo);
+                    wx.setStorageSync('userInfo', JsonUserInfo)
                     // 跳转到绑定手机的页面
                     wx.navigateTo({
                       url: '../login/index'
