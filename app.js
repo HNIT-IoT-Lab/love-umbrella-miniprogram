@@ -14,7 +14,7 @@ App({
         }).then(res => {
             // 只有没有过期才不会删除token
             if(res.code !== 200 || res.data == false) {
-                console.log('本地token已过期,将会被删除')
+                // console.log('本地token已过期,将会被删除')
                 // 删除本地的token等信息
                 wx.removeStorageSync('token');
                 wx.removeStorageSync('userInfo');
@@ -33,7 +33,7 @@ App({
     // 展示本地存储能力
     wx.login({
       success: (res) => {
-          console.log(res.code)
+        //   console.log(res.code)
           // 成功获取到code
           let code = res.code;
           request({
@@ -43,10 +43,10 @@ App({
               },
               method: "POST"
           }).then(res => {
-              console.log(res)
+            //   console.log(res)
               if (res.code === 200) {
                   // 登录成功,获得token,拿着token去后端获取用户信息
-                  console.log('成功获取到token：' + res)
+                //   console.log('成功获取到token：' + res)
                   let token = res.data
                   wx.setStorageSync('token', token)
                   request({
@@ -55,14 +55,13 @@ App({
                           "token": token
                       }
                   }).then(res => {
-                      console.log(res)
+                    //   console.log(res)
                       if (res.code === 200) {
                           wx.setStorageSync('userInfo', res.data)
                           let phoneNumber = res.data.phoneNumber
                           if(phoneNumber) {
                               // 绑定过手机号
                               wx.setStorageSync('phone', phoneNumber)
-                              successCallBack()
                           }
                       }
                   })

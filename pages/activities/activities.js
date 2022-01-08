@@ -81,6 +81,7 @@ Page({
     },
 
     fetchData() {
+        // 招募中的活动
         request({
             url: 'volunteerActivity/findListByStutas',
             data: {

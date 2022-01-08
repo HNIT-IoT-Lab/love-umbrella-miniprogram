@@ -3,11 +3,51 @@
     <scroll-view scroll-y="true" class="scroll-box">
           <view class="scroll-item" wx:for="{{list}}" wx:key="index" bindtap="activityInfo" data-activityid="{{item.id}}">
             <view class="card">
-              <image src="{{item.activityImg}}"></image>
-              <view>{{item.activityName}} </view>
-              <view>{{item.activityAddress}}</view>
-              <view>活动时间: {{item.startTime}}至{{item.endTime}}</view>
-              <view>活动描述: {{item.description}}</view>
+              <!-- 活动图片 -->
+              <view class="img">
+                <image src="{{item.activityImg}}" mode="scaleToFill"></image>
+              </view>
+              <!-- 标题和描述信息 -->
+              <view class="text-area">
+                <!-- 活动标题 -->
+                <view class="title">
+                  {{item.activityName}}
+                </view>
+                <!-- 活动描述 -->
+                <view class="description">
+                  这是描述信息
+                </view>
+              </view>
+              <view class="activity-data">
+                <!-- 进度条 -->
+                <view class="progress-box">
+                  <progress percent="20" show-info stroke-width="5" active color="#fe6902" border-radius="50"/>
+                </view>
+                <!-- 活动数据 -->
+                <view class="weui-flex">
+                  <view class="weui-flex__item left">
+                    <view class="div">
+                      <view class="number">1</view>
+                      <view class="item-text">报名人数</view>
+                    </view>
+                  </view>
+                  <view class="weui-flex__item">
+                    <view class="number">1</view>
+                    <view class="item-text">服务时长</view>
+                  </view>
+                  <view class="weui-flex__item right">
+                    <view class="div">
+                      <view class="number">1</view>
+                      <view class="item-text">剩余名额</view>
+                    </view>
+                  </view>
+                </view>
+                <!-- 分割线 -->
+
+                
+                <!-- <view class="divLine"></view> -->
+              </view>
+
             </view>
           </view>
     </scroll-view>
