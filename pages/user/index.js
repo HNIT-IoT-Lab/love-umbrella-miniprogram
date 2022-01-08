@@ -1,14 +1,25 @@
 // pages/user/index.js
 Page({
   data: {
-    userinfo:{},
+    userinfo: {},
     // 借伞数量
-    collectNums:0
+    collectNums: 0
   },
-  onShow(){
-    const userinfo=wx.getStorageSync("userInfo");
-    const collect=wx.getStorageSync("collect")||[];
-    this.setData({userinfo,collectNums:collect.length});
-      
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+    const userInfo = wx.getStorageSync("userInfo");
+    const collect = wx.getStorageSync("collect") || [];
+    this.setData({
+      userinfo: userInfo,
+      collectNums: collect.length
+    });
+  },
+  /**
+   * 页面初始化
+   */
+  onlaunch: function () {
+
   }
 })

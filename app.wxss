@@ -2,6 +2,7 @@
 
 /* icon */
 @import "./styles/iconfont.wxss";
+@import "./styles/volunteerIconfont.wxss";
 @import "./styles/activity.wxss";
 /* 全局引入微信组件的样式 */
 @import  './miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';

@@ -3,14 +3,13 @@ function request(params) {
   wx.showLoading({
     title: '加载中',
   })
-
   // 将wx.request封装成Promise风格，可以使用.then和.err
-  return new Promise((resolve,reject)=>{
+  return new Promise((resolve, reject) => {
     wx.request({
       ...params,
       // 将传入对象的url拼接在后面
       url: "http://localhost:8080/" + params.url,
-      success:(res) => {
+      success: (res) => {
         resolve(res.data)
       },
       fail: (err) => {
@@ -23,5 +22,6 @@ function request(params) {
     })
   })
 }
+
 
 export default request
