@@ -1,8 +1,11 @@
 /* components/activityList/activityList.wxss */
+.list {
+    height: 100vh;
+}
 
 .scroll-box {
-    height: 1050rpx;
     background-color: #f4f4f4;
+    height: 100%;
 }
 
 .scroll-box .scroll-item {
@@ -14,19 +17,12 @@
     border-radius: 5rpx;
     padding-left: 15rpx;
     padding-right: 15rpx;
-    /* background-color: #fefefe;
-    padding-top: 20rpx;
-    padding-left: 30rpx;
-    padding-right: 30rpx;
-    padding-bottom: 10rpx;
-     */
     width: 690rpx;
 }
 
 .card .img {
     margin-left: -15rpx;
     width: 690rpx;
-    height: 480rpx;
 }
 
 .card .img image{
