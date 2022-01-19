@@ -11,8 +11,7 @@
                 </view>
                 <view class="weui-flex__item"></view>
                 <view class="right">
-                    <!-- {{activityInfo.startTime}} - {{activityInfo.endTime}} -->
-                    2021/12/22-10:20
+                    {{activityInfo.startTime}} - {{activityInfo.endTime}}
                 </view>
             </view>
             <view class="item weui-flex">

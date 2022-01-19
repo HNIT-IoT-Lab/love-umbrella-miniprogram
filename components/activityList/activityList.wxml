@@ -1,7 +1,8 @@
 <!--components/activityList/activityList.wxml-->
 <view class="list">
     <scroll-view scroll-y="true" class="scroll-box">
-          <view class="scroll-item" wx:for="{{list}}" wx:key="index" bindtap="activityInfo" data-activityid="{{item.id}}">
+          <view class="scroll-item" wx:for="{{list}}" wx:key="index" bindtap="activityInfo" 
+          data-activityid="{{item.activityId}}">
             <view class="card">
               <!-- 活动图片 -->
               <view class="img">
