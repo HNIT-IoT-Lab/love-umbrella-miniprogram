@@ -89,5 +89,12 @@ Page({
                 console.log('Swiper图片' + err)
             }
         })
+    },
+    borrowUmbrella() {
+        // 跳转到绑定手机的页面
+        console.log(1111);
+        wx.navigateTo({
+            url: '../borrowUmbrella/index'
+        })
     }
 })

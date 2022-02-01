@@ -1,6 +1,30 @@
 <!--pages/home/home.wxml-->
-<swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}">
-    <swiper-item wx:for="{{list}}" wx:key="index">
-        <image src="{{item.image_url}}" mode="widthFix" style="width: 750rpx;"></image>
-    </swiper-item>
-</swiper>
+<view class="main">
+    <view class="top">
+        <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}">
+            <swiper-item wx:for="{{list}}" wx:key="index">
+                <image src="{{item.image_url}}" mode="widthFix" style="width: 750rpx;"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="center">
+        <view class="center_up">
+            <view class="center_up_title">🚩计算机青协简介🚩</view>
+            <view class="center_up_content">✋✋湖工计算机青协全称湖南工学院计算机与信息科学学院青年志愿者协会，<text class="code">成立于2005年</text>，是由一群志愿从事社会公益活动与社会保障事业的同学👦👩组成的团体，通过组织和指导全院青年志愿服务活动🎁，为经济特别困难以及其他需要帮助的社会成员提供服务💖💖。协会自创办以来一直秉承着<text class="code">“奉献、友爱、互助、进步”</text>这一宗旨😊，始终奉行<text class="code">“志愿、奉献、务实、互助、持久”</text>的原则😄，发扬<text class="code">“助人为乐、吃苦耐劳”</text>的精神😘，积极开展有益于同学、学校、社会的公益活动。</view>
+        </view>
+        <view class="center_dowm" bindtap="borrowUmbrella">
+            <view class="center_dowm_title">爱心雨伞租借</view>
+            <view class="center_dowm_content">小主😜，不要怕，雨💦在下，伞🌂在手，爱💖在心中能长久</view>
+        </view>
+    </view>
+    <!-- 隔墙法清除浮动 -->
+    <view style="clear:both"></view>
+    <!-- 底部版权声明 -->
+    <view class="footer">
+        <view class="footerImage">
+            <image src="../../images/qxLogo.png" role="img"></image>
+        </view>
+        <view class="footerTitle">我们一直都在等你</view>
+    </view>
+
+</view>

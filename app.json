@@ -8,7 +8,8 @@
         "pages/telform/telform",
         "pages/user/index",
         "pages/aboutQX/index",
-        "pages/login/index"
+        "pages/login/index",
+        "pages/borrowUmbrella/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
