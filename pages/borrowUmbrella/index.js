@@ -9,15 +9,15 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    let that = this;
-    setInterval(() => {
-      let randomNumber = Math.floor(Math.random() * that.data.contentList.length);
-      that.setData({
-        content: that.data.contentList[randomNumber]
-      })
-    }, 2000)
-  },
+  // onReady: function () {
+  //   let that = this;
+  //   setInterval(() => {
+  //     let randomNumber = Math.floor(Math.random() * that.data.contentList.length);
+  //     that.setData({
+  //       content: that.data.contentList[randomNumber]
+  //     })
+  //   }, 2000)
+  // },
   borrowUmbrella() {
     // 借伞
     let that = this;
