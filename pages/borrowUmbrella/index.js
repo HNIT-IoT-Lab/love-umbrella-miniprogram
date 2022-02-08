@@ -21,29 +21,37 @@ Page({
   borrowUmbrella() {
     // 借伞
     let that = this;
+    //加载框
+    wx.showLoading({
+      title: '正在加载中',
+    })
     authCheck(() => {
       // 用户已经授权且绑定手机号
       request({
-        url:'umbrella/borrowUmbrellaByToken?token='+wx.getStorageSync('token'),
-        method:'GET'
-      }).then(res=>{
-        if(res.code === 200){
+        url: 'umbrella/borrowUmbrellaByToken?token=' + wx.getStorageSync('token'),
+        method: 'GET'
+      }).then(res => {
+        //让加载框消失
+        wx.hideLoading()
+        if (res.code === 200) {
           wx.showModal({
             title: '提示',
             content: '爱心雨伞借取成功\n请按时归还哦！',
           })
-        }else if (res.code===602) {
+        } else if (res.code === 602) {
           wx.showModal({
             title: '提示',
             content: '您还有一把爱心雨伞未归还，请先归还',
           })
-        }else {
+        } else {
           wx.showModal({
             title: '提示',
             content: '爱心雨伞借取失败\n服务器异常',
           })
         }
-      }).catch(err=>{
+      }).catch(err => {
+        //让加载框消失
+        wx.hideLoading()
         wx.showModal({
           title: '提示',
           content: '爱心雨伞借取失败\n服务器异常',
@@ -71,27 +79,35 @@ Page({
     let that = this;
     authCheck(() => {
       // 用户已经授权且绑定手机号
+      //加载框
+      wx.showLoading({
+        title: '正在加载中',
+      })
       request({
-        url:'umbrella/returnUmbrellaByToken?token='+wx.getStorageSync('token'),
-        method:'GET'
-      }).then(res=>{
-        if(res.code === 200){
+        url: 'umbrella/returnUmbrellaByToken?token=' + wx.getStorageSync('token'),
+        method: 'GET'
+      }).then(res => {
+        //让加载框消失
+        wx.hideLoading()
+        if (res.code === 200) {
           wx.showModal({
             title: '提示',
             content: '爱心雨伞归还成功\n',
           })
-        }else if (res.code===603) {
+        } else if (res.code === 603) {
           wx.showModal({
             title: '提示',
             content: '您还没有借取过爱心雨伞，不能借取',
           })
-        }else {
+        } else {
           wx.showModal({
             title: '提示',
             content: '爱心雨伞借取失败\n服务器异常',
           })
         }
-      }).catch(err=>{
+      }).catch(err => {
+        //让加载框消失
+        wx.hideLoading()
         wx.showModal({
           title: '提示',
           content: '爱心雨伞借取失败\n服务器异常',
@@ -113,5 +129,5 @@ Page({
       console.log('没有权限')
     })
   },
-  
+
 })
