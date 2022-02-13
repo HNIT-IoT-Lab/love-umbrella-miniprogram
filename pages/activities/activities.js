@@ -1,5 +1,6 @@
 // pages/activity/activity.js
 import request from "../../utils/request"
+
 Page({
 
     /**
@@ -114,14 +115,14 @@ Page({
                 if(res.data.list.length > 0) {
                     let oldList
                     let oldPageNo
-                    if(type==="00") {
+                    if(type==="01") {
                         oldList = _this.data.activitiesInRecruiting
                         oldPageNo = _this.data.pageNo1
                         _this.setData({
                             activitiesInRecruiting: oldList.concat(res.data.list),
                             pageNo1: oldPageNo + 1
                         })
-                    } else if(type==="01") {
+                    } else if(type==="00") {
                         oldList = _this.data.activitiesInProgress
                         oldPageNo = _this.data.pageNo2
                         _this.setData({
@@ -164,11 +165,11 @@ Page({
                 res.data.list.forEach(element => {
                     activities.push(element)
                 });
-                if(type === "00") { // 招募中的活动
+                if(type === "01") { // 招募中的活动
                     this.setData({
                         activitiesInRecruiting: activities
                     })
-                }else if(type === "01") { // 进行中的活动
+                }else if(type === "00") { // 进行中的活动
                     this.setData({
                         activitiesInProgress: activities
                     })

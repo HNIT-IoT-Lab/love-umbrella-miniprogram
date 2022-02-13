@@ -5,13 +5,18 @@
     line-height: 80rpx;
     font-size: 30rpx;
     text-align: center;
-    position: absolute;
-    bottom: 20rpx;
     border-radius: 50rpx;
-    left: 20rpx;
+    margin-top: 20rpx;
+    margin-bottom: 10px;
+    margin-left: 20rpx;
 }
 
 .sign-up-btn {
+    background: #f96b67;
+    color: white;
+}
+
+.sign-in-btn {
     background: #f96b67;
     color: white;
 }
@@ -20,10 +25,13 @@
     width: 100vw;
     height: 100vh;
     background-color: #f4f4f4;
+    display: flex;
+    flex-direction:column;
 }
 
 .container-box scroll-view {
-    height: 1104rpx;
+    flex: 1;
+    height: 1px;
 }
 
 .primary-info-box {

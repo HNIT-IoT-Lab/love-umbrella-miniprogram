@@ -7,12 +7,11 @@
             <view class="title">{{activityInfo.activityName}}</view>
             <view class="item weui-flex">
                 <view class="left iconfont icon-activity">
-                    日期
+                    起始日期
                 </view>
                 <view class="weui-flex__item"></view>
                 <view class="right">
-                    <!-- {{activityInfo.startTime}} - {{activityInfo.endTime}} -->
-                    2021/12/22-10:20
+                    {{activityInfo.startTime}} - {{activityInfo.endTime}}
                 </view>
             </view>
             <view class="item weui-flex">
@@ -26,20 +25,20 @@
             </view>
             <view class="item weui-flex">
                 <view class="left iconfont icon-people">
-                    联系人
+                    负责人
                 </view>
                 <view class="weui-flex__item"></view>
                 <view class="right">
-                    {{activityInfo.createBy}}
+                    {{activityInfo.contactName}}
                 </view>
             </view>
             <view class="item weui-flex">
                 <view class="left iconfont icon-mobilephone">
-                    联系电话
+                    负责人电话
                 </view>
                 <view class="weui-flex__item"></view>
-                <view class="right" bindtap="phoneCall" data-phonenumber="133313131">
-                    13999424681
+                <view class="right" bindtap="phoneCall" data-phonenumber="{{activityInfo.contactNumber}}">
+                    {{activityInfo.contactNumber}}
                 </view>
             </view>
         </view>
@@ -65,11 +64,22 @@
             </view>
         </view>
 
+        <!-- 活动还未开始 -->
+        <view wx:if="{{activityInfo.status === '01' && alreadySignUp}}" class="btn weui-btn_default  weui-btn_disabled">已报名</view>
+        <view wx:elif="{{activityInfo.status === '01' && activityInfo.numberOfAttendees === activityInfo.numberOfNeed}}" class="btn weui-btn_default  weui-btn_disabled">名额已满</view>
+        <view wx:elif="{{activityInfo.status === '01' && !alreadySignUp}}" class="btn sign-up-btn weui-btn_default" bindtap="signUpEvent">我要报名</view>
+
+        <!-- 活动正在进行中 -->
+        <view wx:elif="{{activityInfo.status === '00' && !alreadySignUp}}" class="btn weui-btn_default  weui-btn_disabled">未报名</view>
+        <view wx:elif="{{activityInfo.status === '00' && alreadySignUp && hasSignIn}}" class="btn weui-btn_default  weui-btn_disabled">已签到</view>
+        <view wx:elif="{{activityInfo.status === '00' && alreadySignUp && !hasSignIn}}" class="btn sign-in-btn weui-btn_default" bindtap="signInEvent" data-activityId="{{activityInfo.id}}">扫码签到</view>
+
+        <!-- 活动已结束 -->
+        <view wx:else="{{activityInfo.status === '02'}}" class="btn weui-btn_default  weui-btn_disabled">已结束</view>
+
     </scroll-view>
 </view>
 
-<view wx:if="{{!alreadySignUp}}" class="btn sign-up-btn weui-btn_default" bindtap="signUpEvent">我要报名</view>
-<view wx:else="" class="already-sign-up-btn btn weui-btn_default  weui-btn_disabled">已报名</view>
 
 
 
