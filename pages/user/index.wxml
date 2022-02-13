@@ -15,14 +15,14 @@
   <view class="user_main">
     <!-- 历史足迹 -->
     <view class="history_wrap">
-      <navigator>
-        <view class="his_num">0</view>
-        <view class="his_name">志愿总时长</view>
-      </navigator>
-      <navigator url="/pages/collect/index">
-        <view class="his_num">0</view>
-        <view class="his_name">志愿次数</view>
-      </navigator>
+      <view class="his_parent">
+          <view class="his_num">{{activityTotaltime}}</view>
+          <view class="his_name">志愿总时长</view>
+      </view>
+      <view class="his_parent">
+          <view class="his_num">{{activityNumber}}</view>
+          <view class="his_name">志愿次数</view>
+      </view>
     </view>
     <!-- 我的历史记录 -->
     <view class="orders_wrap">

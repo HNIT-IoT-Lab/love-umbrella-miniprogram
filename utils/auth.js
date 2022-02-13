@@ -24,11 +24,11 @@ function checkAuth(successCallBack,unauthorizedCallBack,unboundPhoneCallBack,fai
 
     // 判断是否登录
     if (wx.getStorageSync('token')) {
-        // 用户已经登录
+        // 用户已经授权且绑定手机号
         if(wx.getStorageSync('phone')) {
             successCallBack()
         } else {
-            // 跳转到绑定手机页面
+            // 用户授权但是未绑定手机号，跳转到绑定手机页面
             unboundPhoneCallBack()
         }
     } else {

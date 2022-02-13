@@ -184,7 +184,7 @@ Page({
     signUpEvent()  {
         let _this = this
         authCheck(() =>  {
-            // 已经登录成功的回调
+            // 用户已经授权且绑定手机号
             console.log('报名成功')
             _this.doSignUp()
             // 调用报名接口
