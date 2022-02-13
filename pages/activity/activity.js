@@ -28,8 +28,8 @@ Page({
     onLoad: function (options) {
         this.setData({
             activityid:  options.activityid
-        })
-        this.fetchData()
+        });
+        this.fetchData();
     },
 
     /**
@@ -149,7 +149,9 @@ Page({
             })
         }
 
-        // 获取报名的人
+        /**
+         * 获取已报名志愿者列表
+         */
         request({
             url: "volunteerActivity/getSignUpList",
             data: {
@@ -160,6 +162,7 @@ Page({
                 _this.setData({
                     signUpList: res.data
                 })
+                _this.checkSignInStatus(res.data);
             }
         })
     },
@@ -328,5 +331,26 @@ Page({
         }).catch(err=>{
             console.log(err);
         })
+    },
+
+    /**
+     * 检查是否已经签到过
+     */
+    checkSignInStatus(signUpList) {
+        console.log(signUpList)
+        const userInfo = wx.getStorageSync('userInfo');
+        // 判断当前用户是已经否登陆
+        if(userInfo) {
+            for(let i = 0,len = signUpList.length; i < len; i++) {
+                if(signUpList[i].id == userInfo.id) {
+                    if(signUpList[i].isSignIn === 1) {
+                        this.setData({
+                            hasSignIn: true
+                        })
+                        return;
+                    }
+                }
+            }
+        }
     }
 })
