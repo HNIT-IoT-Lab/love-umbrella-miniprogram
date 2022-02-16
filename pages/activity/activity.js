@@ -99,6 +99,31 @@ Page({
     },
 
     /**
+     * 权限检查
+     */
+    authPreCheck(successCallBack) {
+        authCheck(() =>  {
+            // 用户已经授权且绑定手机号
+            // 调用成功的回调
+            successCallBack();
+        },() => {
+            // 未授权的回调
+            wx.navigateTo({
+              url: '../authorize/authorize',
+            })
+        },() => {
+            // 未绑定手机号，跳转到绑定手机页面
+            wx.navigateTo({
+              url: '../login/index',
+            })
+        }
+        ,() => {
+            // 登录失败的回调
+            console.log('没有权限')
+        })
+    },
+
+    /**
      * 获取活动详细信息
      */
     fetchData() {
@@ -139,6 +164,7 @@ Page({
                 }
             }).then(res => {
                 if(res.code === 200) {
+                    console.log('报名状态：' + res.data);
                     this.setData({
                         alreadySignUp: res.data
                     })
@@ -186,26 +212,10 @@ Page({
      */
     signUpEvent()  {
         let _this = this
-        authCheck(() =>  {
-            // 用户已经授权且绑定手机号
-            console.log('报名成功')
-            _this.doSignUp()
+        this.authPreCheck(()=>{
             // 调用报名接口
-        },() => {
-            // 未授权的回调
-            wx.navigateTo({
-              url: '../authorize/authorize',
-            })
-        },() => {
-            // 未绑定手机号，跳转到绑定手机页面
-            wx.navigateTo({
-              url: '../login/index',
-            })
-        }
-        ,() => {
-            // 登录失败的回调
-            console.log('没有权限')
-        })
+            _this.doSignUp()
+        });
     },
 
     /**
@@ -246,15 +256,21 @@ Page({
     },
 
     /**
-     * 打开扫一扫功能
+     * 扫一扫签到事件
      */
     signInEvent(evt) {
+        let _this = this;
+        _this.authPreCheck(()=>{
+            _this.signIn();
+        });
+    },
+
+    /**
+     * 签到
+     */
+    signIn() {
         // 当前活动的ID
         const curActivityId = evt.currentTarget.dataset.activityid;
-        // 判断是否登录
-        if(!wx.getStorageSync('userInfo')) {
-            wx.showToast({ title: '请登陆后重试', icon: 'none', });
-        }
 
         // 允许从相机和相册扫码
         wx.scanCode({
@@ -275,7 +291,7 @@ Page({
     },
 
     /** 
-     * 解析二维码内容
+     * 开启扫一扫解析二维码内容
      */
     resolvQrCode(content,curActivityId) {
         console.log('二维码内容：' + content);
@@ -305,7 +321,7 @@ Page({
     },
 
     /**
-     * 报名参加活动
+     * 发起签到请求
      */
     doSignIn(activityId) {
         let userInfo = wx.getStorageSync('userInfo');
@@ -337,20 +353,69 @@ Page({
      * 检查是否已经签到过
      */
     checkSignInStatus(signUpList) {
-        console.log(signUpList)
-        const userInfo = wx.getStorageSync('userInfo');
-        // 判断当前用户是已经否登陆
-        if(userInfo) {
-            for(let i = 0,len = signUpList.length; i < len; i++) {
-                if(signUpList[i].id == userInfo.id) {
-                    if(signUpList[i].isSignIn === 1) {
-                        this.setData({
-                            hasSignIn: true
-                        })
-                        return;
+        let _this = this;
+        _this.authPreCheck(()=>{
+            const userInfo = wx.getStorageSync('userInfo');
+            // 判断当前用户是已经否登陆
+            if(userInfo) {
+                for(let i = 0,len = signUpList.length; i < len; i++) {
+                    if(signUpList[i].id == userInfo.id) {
+                        if(signUpList[i].isSignIn === 1) {
+                            _this.setData({
+                                hasSignIn: true
+                            })
+                            return;
+                        }
                     }
                 }
             }
+        });
+        
+    },
+
+    /**
+     * 取消报名事件
+     */
+    cancelEvent() {
+        let _this = this;
+        _this.authPreCheck(()=>{
+            _this.doCancel();
+        });
+    },
+
+    /**
+     * 发起取消报名请求
+     */
+    doCancel() {
+        let _this = this;
+        const token = wx.getStorageSync('token');
+        // 判断当前用户是已经否登陆
+        if(token) {
+            let activityId = _this.data.activityid;
+            request({
+                url: 'signUpRecord/cancelRegistration',
+                method: 'POST',
+                data: {
+                    'token': token,
+                    'activityId': activityId
+                }
+            }).then(response=>{
+                console.log(response);
+                if(response.code === 200) {
+                    wx.showToast({ title: '已取消报名', icon: 'none', duration: 2000 });
+                    _this.setData({
+                        canSignUp: true,
+                        alreadySignUp: false
+                    });
+                    setTimeout(()=>{
+                        _this.fetchData();
+                    },500);
+                } else {
+                    wx.showToast({ title: '取消失败，请稍后重试', icon: 'none', duration: 2000 });
+                }
+            }).catch(err=>{
+                console.log(err);
+            })
         }
     }
 })

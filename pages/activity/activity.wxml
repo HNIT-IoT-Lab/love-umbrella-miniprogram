@@ -65,7 +65,7 @@
         </view>
 
         <!-- 活动还未开始 -->
-        <view wx:if="{{activityInfo.status === '01' && alreadySignUp}}" class="btn weui-btn_default  weui-btn_disabled">已报名</view>
+        <view wx:if="{{activityInfo.status === '01' && alreadySignUp}}" class="btn weui-btn_default" bindtap="cancelEvent">取消报名</view>
         <view wx:elif="{{activityInfo.status === '01' && activityInfo.numberOfAttendees === activityInfo.numberOfNeed}}" class="btn weui-btn_default  weui-btn_disabled">名额已满</view>
         <view wx:elif="{{activityInfo.status === '01' && !alreadySignUp}}" class="btn sign-up-btn weui-btn_default" bindtap="signUpEvent">我要报名</view>
 
