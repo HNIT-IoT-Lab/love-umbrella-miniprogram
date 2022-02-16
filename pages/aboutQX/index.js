@@ -11,19 +11,19 @@ Page({
     duration: 100,
     "banner_list": [{
         "banner": [{
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages/1.jpg",
+            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/1.jpg",
           },
           {
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages/2.jpg",
+            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/2.jpg",
           },
           {
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages/3.jpg",
+            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/3.jpg",
           },
           {
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages/4.jpg",
+            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/4.jpg",
           },
           {
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages/5.jpg",
+            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/5.jpg",
           }
         ]
       },

@@ -29,6 +29,12 @@
           "pathName": "pages/borrowUmbrella/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/home/home",
+          "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
         }
       ]
     }

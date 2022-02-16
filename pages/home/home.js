@@ -7,7 +7,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-        swiper_list: [{
+        swiper_list:[],
+        storePath:'qxImages/categoryImages0/',
+        defaultList: [{
             "name": "15届16届交接图片",
             "summary": "15届16届交接图片",
             "ext_tag": "http://121.37.190.126/qxImages/categoryImages2/1.jpg",
@@ -69,14 +71,20 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        //this.renderSwiper()
+        this.getImageList();
+        //如果没有取到图片，让其显示默认图片
+        if(this.data.swiper_list.length===0){
+            this.setData({
+                swiper_list: this.data.defaultList
+             })
+        }
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        
     },
 
     /**
@@ -121,22 +129,30 @@ Page({
 
     },
 
-    // renderSwiper() {
-    //     wx.request({
-    //         url: 'https://api.juooo.com/home/index/getClassifyHome?city_id=0&abbreviation=&version=6.1.54&referer=2',
-    //         method: "GET",
-    //         success: (res) => {
-    //             console.log(res.data.data.slide_list)
-    //             this.setData({
-    //                 list: res.data.data.slide_list
-    //             })
-    //         },
-    //         fail: (err) => {
-    //             // Swiper图片
-    //             console.log('Swiper图片' + err)
-    //         }
-    //     })
-    // },
+    getImageList() {
+        request({
+            url: "miniProgram/getImageList",
+            method: "GET",
+            data: {
+                "storePath": this.data.storePath
+            }
+        }).then(
+            res => {
+                if(res.code===200){
+                    //发过来的字符串需要转成对象
+                    let obj = JSON.parse(res.data);
+                    console.log(obj.swiperList);
+                    this.data.swiper_list=obj.swiperList;
+                    this.setData({
+                        swiper_list: obj.swiperList
+                     })
+                }
+            },
+            err => {
+                console.log(res);
+            }
+        )
+    },
     borrowUmbrella() {
         // 跳转到绑定手机的页面
         console.log(1111);
