@@ -13,55 +13,37 @@ Page({
             "name": "15届16届交接图片",
             "summary": "15届16届交接图片",
             "ext_tag": "http://121.37.190.126/qxImages/categoryImages2/1.jpg",
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/1.jpg"
+            "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/9896887b07054092aee409c55093d607.jpeg"
         },
         {
             "name": "15届理事会合影",
             "summary": "15届16届交接图片",
             "ext_tag": "http://121.37.190.126/qxImages/categoryImages2/1.jpg",
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/2.jpg"
+            "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/e48882fc9a254b37994acac90e77fc47.jpg"
         },
         {
             "name": "15届16届交接图片",
             "summary": "15届16届交接图片",
             "ext_tag": "http://121.37.190.126/qxImages/categoryImages2/1.jpg",
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/3.jpg"
+            "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/4bf4741f2ecd4de8b52e52c4a7878fa7.jpg"
         },
         {
             "name": "15届16届交接图片",
             "summary": "15届16届交接图片",
             "ext_tag": "http://121.37.190.126/qxImages/categoryImages2/1.jpg",
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/4.jpg"
+            "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/fa4fe460748948e9b8f91fa983df68e0.jpg"
         },
         {
             "name": "15届16届交接图片",
             "summary": "15届16届交接图片",
             "ext_tag": "http://121.37.190.126/qxImages/categoryImages2/1.jpg",
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/5.jpg"
+            "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/8babdb0f2f574fa09d34752595d47b04.jpg"
         },
         {
             "name": "15届16届交接图片",
             "summary": "15届16届交接图片",
             "ext_tag": "http://121.37.190.126/qxImages/categoryImages2/1.jpg",
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/6.jpg"
-        },
-        {
-            "name": "15届16届交接图片",
-            "summary": "15届16届交接图片",
-            "ext_tag": "http://121.37.190.126/qxImages/categoryImages2/1.jpg",
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/7.jpg"
-        },
-        {
-            "name": "15届16届交接图片",
-            "summary": "15届16届交接图片",
-            "ext_tag": "http://121.37.190.126/qxImages/categoryImages2/1.jpg",
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/8.jpg"
-        },
-        {
-            "name": "15届16届交接图片",
-            "summary": "15届16届交接图片",
-            "ext_tag": "http://121.37.190.126/qxImages/categoryImages2/1.jpg",
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/9.jpg"
+            "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages0/5adddbabd8ee4491859f48785c3b3c6b.jpg"
         },
         
     ]
@@ -141,7 +123,6 @@ Page({
                 if(res.code===200){
                     //发过来的字符串需要转成对象
                     let obj = JSON.parse(res.data);
-                    console.log(obj.swiperList);
                     this.data.swiper_list=obj.swiperList;
                     this.setData({
                         swiper_list: obj.swiperList
@@ -155,7 +136,6 @@ Page({
     },
     borrowUmbrella() {
         // 跳转到绑定手机的页面
-        console.log(1111);
         wx.navigateTo({
             url: '../borrowUmbrella/index'
         })

@@ -1,4 +1,5 @@
-<view class="main" style="background: url(../../images/background.jpg);">
+<view class="main">
+  <image src="../../images/background.jpg"></image>
   <view class="head">
     <text class="head_warningFont">借伞须知：</text>
     <text class="head_content">
@@ -7,14 +8,15 @@
   </view>
   <view>
     <view class="border">
-      <button class="goodbutton hover" bindtap="borrowUmbrella">借伞</button>
+      <button class="goodbutton hover" bindtap="borrowUmbrella">扫码借伞</button>
     </view>
     <view class="border">
-      <button class="goodbutton hover" bindtap="returnUmbrella">还伞</button>
+      <button class="goodbutton hover" bindtap="returnUmbrella">扫码还伞</button>
     </view>
   </view>
   <!-- 底部提示框 -->
-  <view class="chatRoom" style="background-image: url(../../images/talkBackgroud.png)">
+  <view class="chatRoom">
+    <image src="../../images/talkBackgroud.png"></image>
     <text>
       {{content}}
     </text>

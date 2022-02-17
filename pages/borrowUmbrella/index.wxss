@@ -10,6 +10,12 @@
   width: 100%;
   height: 100%;
 }
+.main>image{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 .head{
   margin: 50rpx 0 0 40rpx;
 }
@@ -71,10 +77,14 @@
   background-size: 100%;
   background-repeat: no-repeat;
 }
+.chatRoom image{
+    width:100%;
+    height:120%;
+}
 .chatRoom text{
   position: absolute;
   left: 50%;
-  top:40%;
+  top:45%;
   transform: translate(-45%,-50%);
   font-size: 32px;
   color: #3cba92;
