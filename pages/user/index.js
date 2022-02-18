@@ -45,7 +45,6 @@ Page({
     }).then(
       res => {
         //拿到用户的活动数据
-        console.log("========", res)
         //不为空就存入缓存
         if (res.data) {
           wx.setStorageSync('userStaticInfo', res.data)

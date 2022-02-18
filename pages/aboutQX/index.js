@@ -1,6 +1,4 @@
-//index.js
-//获取应用实例
-var app = getApp()
+import request from "../../utils/request"
 Page({
   data: {
     motto: 'MiHome_Store',
@@ -9,83 +7,187 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 100,
-    "banner_list": [{
-        "banner": [{
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/1.jpg",
-          },
-          {
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/2.jpg",
-          },
-          {
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/3.jpg",
-          },
-          {
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/4.jpg",
-          },
-          {
-            "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/5.jpg",
-          }
-        ]
-      },
-    ],
-    hotgoods: [{
-        "name": "春天之家福利院支教",
+    swiper_list: [], //轮播图列表
+    storePath: 'qxImages/categoryImages1/',//轮播图的存储路径
+    content_list:[],//志愿活动列表
+    ContentStorePath: 'qxImages/categoryImages2/',//志愿活动路径
+    swiperList: [
+    {
+      summary: "",
+      title: "",
+      url: "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/484f43acd04544ce97b07b09083f74db.jpg",
+      storePath: "qxImages/categoryImages1/"
+    },
+    {
+      summary: "",
+      title: "",
+      url: "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/9183b38fdd7943e0b08208b53b4c46e1.jpg",
+      storePath: "qxImages/categoryImages1/"
+    },
+    {
+      summary: "",
+      title: "",
+      url: "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/92b8f797487d4d1893b25947ee80b1e4.jpg",
+      storePath: "qxImages/categoryImages1/"
+    },
+    {
+      summary: "",
+      title: "",
+      url: "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/20d7416ee27a4e8d9ac1743448264cea.jpg",
+      storePath: "qxImages/categoryImages1/"
+    },
+    {
+      summary: "",
+      title: "",
+      url: "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/dc0349eb22f346e0b232858dc96e3802.jpg",
+      storePath: "qxImages/categoryImages1/"
+    },
+    {
+      summary: "",
+      title: "",
+      url: "https://www.volunteer.fengxianhub.top/qxImages/categoryImages1/87b4fbb2632a461a9de08575f2a682ea.jpg",
+      storePath: "qxImages/categoryImages1/"
+    }],
+    contentList: [{
+        "title": "春天之家福利院支教",
         "summary": "",
-        "ext_tag": "http://121.37.190.126/qxImages/categoryImages2/1.jpg",
-        "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/1.jpg"
-      },
-      {
-        "name": "敬老院爱心活动",
-        "summary": "",
-        "ext_tag": "http://static.home.mi.com/app/shop/img?id=shop_d65477ca8db6626da323554e132d7de9.png&w=420&h=240&crop=a_0_120_1080_480&t=png",
-        "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/2.jpg",
-        "url": "http://home.mi.com/shop/detail?gid=95"
-      },
-      {
-        "name": "松林小学支教",
-        "summary": "",
-        "ext_tag": "http://static.home.mi.com/app/shop/img?id=shop_34699befd5c2de3a028eb987fea574e9.png&w=420&h=240&crop=a_0_120_1080_480&t=png",
-        "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/3.jpg"
-      },
-      {
-        "name": "交通岗爱心活动",
-        "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/4.jpg",
-        "summary": "",
-        "ext_tag": "http://static.home.mi.com/app/shop/img?id=shop_86f01fa8cea034deb1dce44c0385baab.png&w=420&h=240&crop=a_0_120_1080_480&t=png"
-      },
-      {
-        "name": "巡河净滩爱心活动",
-        "summary": "",
-        "ext_tag": "http://static.home.mi.com/app/shop/img?id=shop_26beb8c609406d060c57b7cdc9d2627f.png&w=420&h=240&crop=a_0_120_1080_480&t=png",
-        "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/5.jpg",
+        "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/1.jpg"
       },
       {
-        "name": "春祭",
+        "title": "敬老院爱心活动",
         "summary": "",
-        "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/6.jpg",
+        "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/2.jpg"
+      },
+      {
+        "title": "松林小学支教",
+        "summary": "",
+        "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/3.jpg"
+      },
+      {
+        "title": "交通岗爱心活动",
+        "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/4.jpg",
+        "summary": "",
+      },
+      {
+        "title": "巡河净滩爱心活动",
+        "summary": "",
+        "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/5.jpg",
+      },
+      {
+        "title": "春祭",
+        "summary": "",
+        "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/6.jpg",
       }, {
-        "name": "图书馆整理",
-        "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/7.jpg",
+        "title": "图书馆整理",
+        "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/7.jpg",
         "summary": "",
-        "ext_tag": "http://static.home.mi.com/app/shop/img?id=shop_86f01fa8cea034deb1dce44c0385baab.png&w=420&h=240&crop=a_0_120_1080_480&t=png"
       },
       {
-        "name": "主题党课",
+        "title": "主题党课",
         "summary": "",
-        "ext_tag": "http://static.home.mi.com/app/shop/img?id=shop_26beb8c609406d060c57b7cdc9d2627f.png&w=420&h=240&crop=a_0_120_1080_480&t=png",
-        "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/8.jpg",
+        "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/8.jpg",
       },
       {
-        "name": "三十公里毅行活动",
+        "title": "三十公里毅行活动",
         "summary": "",
-        "pic_url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/9.jpg",
+        "url": "https://www.volunteer.fengxianhub.top/qxImages/categoryImages2/9.jpg",
       }
     ]
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
+
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function (options) {
+    this.getAllList();
+  },
+
+  getAllList(){
+    //回调函数里写如果请求不到数据的策略，给默认列表
+    this.getImageList(() => {
+      this.setData({
+      swiper_list: this.data.swiperList
+      })
+    });
+    this.getContentList(()=>{
+      this.setData({
+        content_list: this.data.contentList
+      })
+      console.log(this.data.content_list);
     })
   },
+
+  /**
+   * 从服务器拿到轮播图图片
+   */
+  getImageList(callback) {
+    request({
+      url: "miniProgram/getImageList",
+      method: "GET",
+      data: {
+        "storePath": this.data.storePath
+      }
+    }).then(
+      res => {
+        if (res.code === 200) {
+          //发过来的字符串需要转成对象
+          let obj = JSON.parse(res.data);
+          if (obj.swiperList.length === 0) {
+            callback();
+          } else {
+            this.setData({
+              swiper_list: obj.swiperList
+            })
+          }
+        }
+      },
+      err => {
+        console.log(err);
+        callback();
+      }
+    )
+  },
+  /**
+   * 从服务器拿到志愿活动数据
+   */
+  getContentList(callback){
+    request({
+      url: "miniProgram/getImageList",
+      method: "GET",
+      data: {
+        "storePath": this.data.ContentStorePath
+      }
+    }).then(
+      res => {
+        if (res.code === 200) {
+          //发过来的字符串需要转成对象
+          let obj = JSON.parse(res.data);
+          //传过来没有数据，给默认值
+          if (obj.swiperList.length === 0) {
+            callback();
+          } else {
+            this.setData({
+              content_list: obj.swiperList
+            })
+          }
+        }else{
+          callback();
+        }
+      },
+      err => {
+        console.log(err);
+        callback();
+      }
+    )
+  },
+  /**val
+   * 页面跳转到详情页面
+   */
+  toContent(val){
+    let item = val.currentTarget.dataset.item;
+    wx.navigateTo({
+      url: '../aboutQXList/aboutQXList?title='+item.title+"&summary="+item.summary+"&url="+item.url,
+    })
+  }
 })

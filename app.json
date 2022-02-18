@@ -9,7 +9,8 @@
         "pages/user/index",
         "pages/aboutQX/index",
         "pages/login/index",
-        "pages/borrowUmbrella/index"
+        "pages/borrowUmbrella/index",
+        "pages/aboutQXList/aboutQXList"
     ],
     "window": {
         "backgroundTextStyle": "light",
