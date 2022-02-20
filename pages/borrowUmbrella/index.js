@@ -168,7 +168,7 @@ onReady:function() {
     }).catch(err => {
       wx.showModal({
         title: '提示',
-        content: '爱心雨伞借取失败\n服务器异常',
+        content: '爱心雨伞借取失败\n服务器异常'+err,
       })
     })
   }

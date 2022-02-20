@@ -33,4 +33,11 @@
   </view>
   <view class="foot">你可以志愿活动页面中报名参加</view>
   <view class="foot">期待和你一起参加志愿活动</view>
+  <!-- 底部版权声明 -->
+  <view class="footer">
+        <view class="footerImage">
+            <image src="../../images/qxLogo.png" role="img"></image>
+        </view>
+        <view class="footerTitle">予人玫瑰，手有余香，做一名快乐的志愿者</view>
+    </view>
 </view>

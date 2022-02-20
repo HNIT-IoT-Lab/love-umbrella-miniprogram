@@ -10,7 +10,8 @@
         "pages/aboutQX/index",
         "pages/login/index",
         "pages/borrowUmbrella/index",
-        "pages/aboutQXList/aboutQXList"
+        "pages/aboutQXList/aboutQXList",
+        "pages/historical_records/records"
     ],
     "window": {
         "backgroundTextStyle": "light",

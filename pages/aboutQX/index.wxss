@@ -89,3 +89,33 @@ image{
   text-align: center;
   margin-top: 20rpx;
 }
+
+/* 底部版权声明 */
+
+.footer {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+  margin-top: 30rpx;
+  text-align: center;
+}
+
+.footerImage {
+  display: inline-block;
+  margin-right: 12rpx;
+}
+
+.footerImage image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.footerTitle {
+  display: inline-block;
+  font-family: 'blod';
+  font-size: 30rpx;
+  padding-bottom: 20rpx;
+  text-align: center;
+  color: rgb(95, 94, 94);
+}

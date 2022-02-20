@@ -1,17 +1,19 @@
 /* pages/aboutQXList/aboutQXList.wxss */
-.body{
+.body {
   position: relative;
 
 }
+
 /* 背景图片 */
-.backgroudImage{
+.backgroudImage {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: -1;
 }
+
 /* 活动图片 */
-.image{
+.image {
   display: block;
   width: 100%;
 }
@@ -23,12 +25,20 @@
   padding: 2px 4px;
   font-family: 'blod';
 }
-.blockquote{
+
+.blockquote {
   display: block;
   padding: 16px;
   margin: 0 0 24px;
   border-left: 8px solid #eb4450;
   background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
   overflow: auto;
-  word-break: break-word!important;
+  word-break: break-word !important;
+}
+
+.summary {
+  display: inline-block;
+  margin: 0 50rpx 50rpx 50rpx;
+  font-family: Monaco;
+  user-select: text
 }

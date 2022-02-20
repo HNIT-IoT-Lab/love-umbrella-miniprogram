@@ -1,0 +1,34 @@
+<!-- 上拉刷新 -->
+<view class="weui-loadmore" wx:if='{{isRefreshing}}'>
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore-tips">正在刷新...</view>
+</view>
+
+<view class="main">
+  <view class="record" wx:for-items="{{borrowUmbrellaRecods}}" wx:key="*this">
+    <view class="{{item.borrowStatus=='已归还' ? 'record_title title_red':'record_title title_green'}}">
+    {{item.borrowStatus}}
+    </view>
+    <view class="record_content">借取时间:{{item.borrowDate}}</view>
+    <view class="record_content">归还时间:{{item.returnDate}}</view>
+    <view class="record_content">共借取:<view class="code">{{item.borrowDurations}}</view>小时</view>
+  </view>
+</view>
+
+<!-- 触底加载 -->
+
+<view wx:if='{{!isRefreshing}}' class="weui-loadmore">
+  <view wx:if='{{isLoadingMoreData}}'>
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore-tips">正在加载更多...</view>
+  </view>
+  <view wx:elif='{{hasMoreData}}'>
+    <view class="weui-loadmore-tips" bindtap='onReachBottom'>点击加载更多</view>
+  </view>
+  <view wx:else>
+    <view class="weui-loadmore-tips">没有更多内容啦</view>
+  </view>
+</view>
+
+<!-- 没有数据时显示 -->
+<view wx:if="{{hasData}}" class="noData">没有查询到用户的历史记录</view>
