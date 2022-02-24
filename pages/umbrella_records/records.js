@@ -1,7 +1,7 @@
 // pages/historical_records/records.js
 import request from "../../utils/request"
-let util = require("../../utils/time");
-let originalData;//保存一份原始的数据
+let timeUtils = require("../../utils/time");
+let _this; //保存一下this的指向
 Page({
 
   /**
@@ -12,7 +12,7 @@ Page({
     hasMoreData: true,
     isRefreshing: false,
     isLoadingMoreData: false,
-    hasData:true,//判断用户是否有历史数据
+    hasData: true, //判断用户是否有历史数据
     type: '', //查看历史记录类型，1表示查看活动记录、2表示查看借伞记录
     borrowUmbrellaRecodPageNo: 1, //用户查询借伞记录页数，默认第一页
     borrowUmbrellaRecodPageSize: 5, //用户查询借伞记录条数，默认20条
@@ -24,18 +24,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //注意这里传过来的是string类型
-    if (options.type === '2') {
-      this.getUserBorrowUmbrellaRecods()
-      console.log(this.data.borrowUmbrellaRecods.length === 0);
-      if(this.data.borrowUmbrellaRecods.length === 0){
-        this.setData({
-          hasData:false
-        })
-      }
-    }
-    //保存一份原始的数据
-    originalData = this;
+    //加载下数据
+    this.getUserBorrowUmbrellaRecods()
+
+    //保存一下this的指向
+    _this = this;
   },
 
   /**
@@ -73,39 +66,39 @@ Page({
     if (this.data.isRefreshing || this.data.isLoadingMoreData) {
       return
     }
-    originalData.setData({
+    _this.setData({
       isRefreshing: true,
       hasMoreData: true
     });
     //重新加载数据
     this.getUserBorrowUmbrellaRecods();
     setTimeout(function () {
-      wx.stopPullDownRefresh() 
-      originalData.setData({
+      wx.stopPullDownRefresh()
+      _this.setData({
         isRefreshing: false,
         hasMoreData: true
       });
-    }, 1500);  
+    }, 1500);
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if (this.data.isRefreshing || this.data.isLoadingMoreData || !this.data.hasMoreData)     {
+    if (this.data.isRefreshing || this.data.isLoadingMoreData || !this.data.hasMoreData) {
       return
     }
-    originalData.setData({
+    _this.setData({
       isLoadingMoreData: true
     });
     //重新请求数据，每次多请求当前默认条数一般的数据，即扩容1.5倍
-    let oldPageSize=this.data.borrowUmbrellaRecodPageSize;
+    let oldPageSize = this.data.borrowUmbrellaRecodPageSize;
     this.setData({
-      borrowUmbrellaRecodPageSize : oldPageSize + (oldPageSize >> 1)
+      borrowUmbrellaRecodPageSize: oldPageSize + (oldPageSize >> 1)
     })
     this.getUserBorrowUmbrellaRecods();
     setTimeout(() => {
-      originalData.setData({
+      _this.setData({
         isLoadingMoreData: false,
       });
     }, 1500);
@@ -133,11 +126,14 @@ Page({
       res => {
         if (res.code === 200) {
           //将得到数据里的时间戳转换格式
-          let records = this.filterData(res.data.records);
-          //将数据设置设置到本地
-          this.setData({
-            borrowUmbrellaRecods: records
-          })
+          if (res.data.Total > 0) {
+            let records = this.filterData(res.data.records);
+            //将数据设置设置到本地
+            this.setData({
+              borrowUmbrellaRecods: records,
+              hasData: false
+            })
+          }
         } else {
           console.log(res);
           wx.showModal({
@@ -157,8 +153,8 @@ Page({
    */
   filterData(obj) {
     obj.forEach(e => {
-      e.borrowDate = util.tsFormatTime(e.borrowDate, this.data.timeFomter);
-      e.returnDate = util.tsFormatTime(e.returnDate, this.data.timeFomter);
+      e.borrowDate = timeUtils.tsFormatTime(e.borrowDate, this.data.timeFomter);
+      e.returnDate = timeUtils.tsFormatTime(e.returnDate, this.data.timeFomter);
       e.borrowStatus = e.borrowStatus === 0 ? "已归还" : "未归还"
     })
     //返回格式化时间后的对象

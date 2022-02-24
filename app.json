@@ -11,7 +11,8 @@
         "pages/login/index",
         "pages/borrowUmbrella/index",
         "pages/aboutQXList/aboutQXList",
-        "pages/historical_records/records"
+        "pages/umbrella_records/records",
+        "pages/Activity_records/records"
     ],
     "window": {
         "backgroundTextStyle": "light",

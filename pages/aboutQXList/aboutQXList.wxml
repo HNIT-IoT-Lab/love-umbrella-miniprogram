@@ -14,7 +14,7 @@
     </view>
 
     <view class="summary">
-      <text>{{summary}}</text>
+      <text user-select>{{summary}}</text>
     </view>
   </view>
   <!-- 概述 -->

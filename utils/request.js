@@ -8,7 +8,7 @@ function request(params) {
     wx.request({
       ...params,
       // 将传入对象的url拼接在后面
-      url: "http://server.natappfree.cc:33073/" + params.url,
+      url: "http://server.natappfree.cc:42292/" + params.url,
       success: (res) => {
         resolve(res.data)
       },
