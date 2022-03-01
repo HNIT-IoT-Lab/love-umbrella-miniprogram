@@ -123,14 +123,13 @@ Page({
                 if(res.code===200){
                     //发过来的字符串需要转成对象
                     let obj = JSON.parse(res.data);
-                    this.data.swiper_list=obj.swiperList;
                     this.setData({
                         swiper_list: obj.swiperList
                      })
                 }
             },
             err => {
-                console.log(res);
+                console.log(err);
             }
         )
     },

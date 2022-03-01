@@ -28,11 +28,11 @@
     <view class="orders_wrap">
       <view class="orders_title">我的历史记录</view>
       <view class="order_content">
-        <navigator url="/pages/order/index?type=1">
+        <navigator url="/pages/Activity_records/records">
           <view class="iconfont icon-ding_dan"></view>
           <view class="order_name">活动记录</view>
         </navigator>
-        <navigator url="/pages/order/index?type=2">
+        <navigator url="/pages/umbrella_records/records">
           <view class="volunteerIconfont icon-shenghuoyongpin-" style="color: #eb4450;"></view>
           <view class="order_name">借伞记录</view>
         </navigator>

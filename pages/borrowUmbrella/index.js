@@ -34,11 +34,11 @@ onReady:function() {
    */
   scanCodeEvent: function (callback) {
     let that = this;
+    //让加载框消失
+    wx.hideLoading()
     wx.scanCode({
       onlyFromCamera: true, // 只允许从相机扫码
       success(res) {
-        //让加载框消失
-        wx.hideLoading()
         //扫码提示声
         that.data.innerAudioContex.play()
         //扫码成功执行回调函数
@@ -168,7 +168,7 @@ onReady:function() {
     }).catch(err => {
       wx.showModal({
         title: '提示',
-        content: '爱心雨伞借取失败\n服务器异常',
+        content: '爱心雨伞借取失败\n服务器异常'+err,
       })
     })
   }

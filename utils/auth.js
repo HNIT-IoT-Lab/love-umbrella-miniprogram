@@ -1,6 +1,6 @@
 import request from "../utils/request"
 
-function checkAuth(successCallBack,unauthorizedCallBack,unboundPhoneCallBack,failCallBack) {
+function checkAuth(successCallBack, unauthorizedCallBack, unboundPhoneCallBack, failCallBack) {
     // 检查本地的token是否已经过期
     request({
         url: "miniProgram/checkLoginState",
@@ -10,7 +10,7 @@ function checkAuth(successCallBack,unauthorizedCallBack,unboundPhoneCallBack,fai
         }
     }).then(res => {
         // 只有没有过期才不会删除token
-        if(res.code !== 200 || res.data == false) {
+        if (res.code !== 200 || res.data == false) {
             console.log('token已过期,即将重新登录')
             // 删除本地的token等信息
             wx.removeStorageSync('token');
@@ -19,13 +19,13 @@ function checkAuth(successCallBack,unauthorizedCallBack,unboundPhoneCallBack,fai
             wx.removeStorageSync('code');
         }
     }).catch(err => {
-        console.log('出现异常：',err)
+        console.log('出现异常：', err)
     })
 
     // 判断是否登录
     if (wx.getStorageSync('token')) {
         // 用户已经授权且绑定手机号
-        if(wx.getStorageSync('phone')) {
+        if (wx.getStorageSync('phone')) {
             successCallBack()
         } else {
             // 用户授权但是未绑定手机号，跳转到绑定手机页面
@@ -60,9 +60,9 @@ function checkAuth(successCallBack,unauthorizedCallBack,unboundPhoneCallBack,fai
                             if (res.code === 200) {
                                 wx.setStorageSync('userInfo', res.data)
                                 let phoneNumber = res.data.phoneNumber
-                                console.log('登陆成功，手机号为:',phoneNumber)
+                                console.log('登陆成功，手机号为:', phoneNumber)
                                 // 执行回调方法
-                                if(phoneNumber) {
+                                if (phoneNumber) {
                                     // 绑定过手机号
                                     wx.setStorageSync('phone', phoneNumber)
                                     successCallBack()
@@ -72,7 +72,7 @@ function checkAuth(successCallBack,unauthorizedCallBack,unboundPhoneCallBack,fai
                                 }
                             }
                         })
-                    } else if(res.code === 600) {
+                    } else if (res.code === 600) {
                         // 用户未授权
                         unauthorizedCallBack()
                     } else {

@@ -1,0 +1,22 @@
+<!--pages/aboutQXList/aboutQXList.wxml-->
+<view class="body">
+  <!-- 图片部分 -->
+  <view >
+    <image class="image" src="{{url}}">
+    </image>
+  </view>
+
+  <!-- 文字部分 -->
+  <!-- 标题 -->
+  <view>
+    <view class="blockquote">
+      <text>{{title}}</text>
+    </view>
+
+    <view class="summary">
+      <text user-select>{{summary}}</text>
+    </view>
+  </view>
+  <!-- 概述 -->
+
+</view>
