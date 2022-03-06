@@ -136,10 +136,6 @@ Page({
           }
         } else {
           console.log(res);
-          wx.showModal({
-            title: '提示',
-            content: '服务器异常' + res,
-          })
         }
       },
       err => {
@@ -155,7 +151,7 @@ Page({
     obj.forEach(e => {
       e.borrowDate = timeUtils.tsFormatTime(e.borrowDate, this.data.timeFomter);
       e.returnDate = timeUtils.tsFormatTime(e.returnDate, this.data.timeFomter);
-      e.borrowStatus = e.borrowStatus === 0 ? "已归还" : "未归还"
+      e.borrowStatus = e.borrowStatus === 0  || e.borrowStatus === '已归还' ? "已归还" : "未归还"
     })
     //返回格式化时间后的对象
     return obj;

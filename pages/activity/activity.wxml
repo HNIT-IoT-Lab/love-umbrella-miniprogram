@@ -29,16 +29,16 @@
                 </view>
                 <view class="weui-flex__item"></view>
                 <view class="right">
-                    {{activityInfo.contactName}}
+                    {{activityInfo.contactName||''}}
                 </view>
             </view>
-            <view class="item weui-flex">
+            <view class="item weui-flex"  bindtap="phoneCall" data-phonenumber="{{activityInfo.contactNumber||''}}">
                 <view class="left iconfont icon-mobilephone">
-                    负责人电话
+                    点击拨打负责人电话
                 </view>
                 <view class="weui-flex__item"></view>
-                <view class="right" bindtap="phoneCall" data-phonenumber="{{activityInfo.contactNumber}}">
-                    {{activityInfo.contactNumber}}
+                <view class="right">
+                    {{activityInfo.contactNumber||''}}
                 </view>
             </view>
         </view>

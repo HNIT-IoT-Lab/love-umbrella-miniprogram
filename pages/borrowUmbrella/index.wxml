@@ -4,7 +4,8 @@
     <text class="head_warningFont">借伞须知：</text>
     <text class="head_content">
     1、借伞/还伞开锁时间为十秒钟，请小主抓点紧哦😉
-    2、借伞时间不能超过两天，请按时归还😘</text>
+    2、锁机会在开锁十秒钟后关闭，请等锁机关闭后再离开
+    3、借伞时间不能超过两天，请按时归还😘</text>
   </view>
   <view>
     <view class="border">

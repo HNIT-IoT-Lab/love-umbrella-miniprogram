@@ -79,7 +79,7 @@ Page({
       })
       return;
     }
-    if (!(/^1[34578]\d{9}$/.test(phoneNumber))) {
+    if (!(/^1[3456789]\d{9}$/.test(phoneNumber))) {
       wx.showModal({
         title: '提示',
         content: '请填入真实手机号码',
@@ -137,7 +137,7 @@ Page({
         "studentNumber": this.data.studentNumber
       }
     }).then(res => {
-      if (res.code == 200) {
+      if (res.code === 200) {
         console.log(res);
         //存入并跳转首页
         successCallBack();
@@ -252,16 +252,6 @@ Page({
    * 手机验证码倒计时
    * 发送验证码bindTap事件，按钮事件
    */
-  tapSendVertifyCode: function (e) {
-    //先简单检查输入信息是否合法
-    if (this.checkInfo() === true) {
-      var that = this;
-      var currentTime = that.data.currentTime;
-      that.startCountDown(currentTime);
-      //发送手机验证码
-      this.getCode();
-    }
-  },
   // 开始倒计时
   startCountDown: function (currentTime) {
     var that = this;

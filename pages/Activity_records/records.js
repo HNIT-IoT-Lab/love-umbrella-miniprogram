@@ -152,18 +152,10 @@ Page({
           }
         }else {
           console.log(res);
-          wx.showModal({
-            title: '提示',
-            content: '服务器异常' + res,
-          })
         }
       },
       err=>{
         console.log(err);
-          wx.showModal({
-            title: '提示',
-            content: '服务器异常' + err,
-          })
       }
     )
   },

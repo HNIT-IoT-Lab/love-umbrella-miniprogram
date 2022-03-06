@@ -16,12 +16,12 @@
     <!-- 历史足迹 -->
     <view class="history_wrap">
       <view class="his_parent">
-          <view class="his_num">{{activityTotaltime}}</view>
-          <view class="his_name">志愿总时长</view>
+        <view class="his_num">{{activityTotaltime}}</view>
+        <view class="his_name">志愿总时长</view>
       </view>
       <view class="his_parent">
-          <view class="his_num">{{activityNumber}}</view>
-          <view class="his_name">志愿次数</view>
+        <view class="his_num">{{activityNumber}}</view>
+        <view class="his_name">志愿次数</view>
       </view>
     </view>
     <!-- 我的历史记录 -->
@@ -49,15 +49,16 @@
     <view class="address_wrap">
       <button open-type="share" class="btn hover">把青协推荐给其他人</button>
     </view>
-
+    <view class="address_wrap">
+        <button class="btn hover" open-type="contact">联系青协客服</button>
+      </view>
     <!-- 其他信息 -->
     <view class="app_info_wrap">
-      <view class="app_info_item app_info_contact">
-        <text>联系青协管理员</text>
-        <text selectable>17670459756</text>
+      <view bindtap="callAdmin" class="app_info_item app_info_contact">
+        <text>电话联系青协管理员</text>
+        <text selectable>{{miniProgramStaticInfo.adminPhone||17670459756}}</text>
       </view>
-      <navigator url="/pages/feedback/index" class="app_info_item">联系青协客服</navigator>
-      <view class="app_info_item">关于我们</view>
+      <view class="app_info_item" bindtap="toContent">关于我们</view>
     </view>
 
     <!-- 底部版权声明 -->

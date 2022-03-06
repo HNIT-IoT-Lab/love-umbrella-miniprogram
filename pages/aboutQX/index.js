@@ -102,6 +102,13 @@ Page({
   onReady: function (options) {
     this.getAllList();
   },
+  /**
+   * 下拉刷新
+   */
+  onPullDownRefresh: function () {
+    this.getAllList();
+  },
+
 
   getAllList(){
     //回调函数里写如果请求不到数据的策略，给默认列表
@@ -109,11 +116,17 @@ Page({
       this.setData({
       swiper_list: this.data.swiperList
       })
+      this.setData({
+        content_list: this.data.contentList
+      })
     });
     this.getContentList(()=>{
       this.setData({
         content_list: this.data.contentList
       })
+      this.setData({
+        swiper_list: this.data.swiperList
+        })
       console.log(this.data.content_list);
     })
   },
@@ -133,7 +146,7 @@ Page({
         if (res.code === 200) {
           //发过来的字符串需要转成对象
           let obj = JSON.parse(res.data);
-          if (obj.swiperList.length === 0) {
+          if (obj.swiperList||obj.swiperList.length === 0) {
             callback();
           } else {
             this.setData({
@@ -143,7 +156,7 @@ Page({
         }
       },
       err => {
-        console.log(err);
+        console.log("======",err);
         callback();
       }
     )

@@ -46,6 +46,12 @@
   margin-bottom: 50rpx;
   font-family: Monaco;
 }
+.noData{
+  text-align: center;
+  font-family: 'blod';
+  font-size: 50rpx;
+  color: #eb4450;
+}
 
 /* 上拉加载和触底刷新样式 */
 .weui-loadmore {

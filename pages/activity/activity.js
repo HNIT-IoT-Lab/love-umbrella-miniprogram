@@ -164,7 +164,6 @@ Page({
                 }
             }).then(res => {
                 if(res.code === 200) {
-                    console.log('报名状态：' + res.data);
                     this.setData({
                         alreadySignUp: res.data
                     })
@@ -222,7 +221,14 @@ Page({
      * 打开打电话功能
      */
     phoneCall(evt) {
-        console.log(evt)
+        let phoneNumber = evt.currentTarget.dataset.phonenumber;
+        if(phoneNumber === ''){
+            wx.showModal({
+              title:'提示',
+              content:'抱歉，该活动没有负责人'
+            })
+            return;
+        }
         wx.makePhoneCall({
             phoneNumber: evt.currentTarget.dataset.phonenumber
         })
@@ -261,15 +267,16 @@ Page({
     signInEvent(evt) {
         let _this = this;
         _this.authPreCheck(()=>{
-            _this.signIn();
+            _this.signIn(evt);
         });
     },
 
     /**
      * 签到
      */
-    signIn() {
+    signIn(evt) {
         // 当前活动的ID
+        console.log(evt);
         const curActivityId = evt.currentTarget.dataset.activityid;
 
         // 允许从相机和相册扫码
