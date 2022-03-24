@@ -60,7 +60,6 @@ function checkAuth(successCallBack, unauthorizedCallBack, unboundPhoneCallBack, 
                             if (res.code === 200) {
                                 wx.setStorageSync('userInfo', res.data)
                                 let phoneNumber = res.data.phoneNumber
-                                console.log('登陆成功，手机号为:', phoneNumber)
                                 // 执行回调方法
                                 if (phoneNumber) {
                                     // 绑定过手机号

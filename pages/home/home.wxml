@@ -1,5 +1,6 @@
 <!--pages/home/home.wxml-->
 <view class="main">
+    <image src="../../images/background2.png"></image>
     <view class="top">
         <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" class="swiper">
             <swiper-item wx:for="{{swiper_list}}" wx:key="index">

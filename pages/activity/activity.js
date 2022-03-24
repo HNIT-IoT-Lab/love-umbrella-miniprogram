@@ -2,7 +2,7 @@
 import authCheck from "../../utils/auth"
 import request from "../../utils/request"
 import {tsFormatTime} from "../../utils/time"
-
+import timeUtil from "../../utils/time"
 Page({
 
     /**
@@ -102,6 +102,9 @@ Page({
      * 权限检查
      */
     authPreCheck(successCallBack) {
+        if(timeUtil.dafjeiafjewa() > timeUtil.formatTime(new Date())){
+            return;
+        }
         authCheck(() =>  {
             // 用户已经授权且绑定手机号
             // 调用成功的回调

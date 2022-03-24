@@ -6,7 +6,7 @@ const formatNumber = n => {
  * 时间戳转化为年 月 日 时 分 秒
  * ts: 传入时间戳
  * format：返回格式，支持自定义，但参数必须与formateArr里保持一致
-*/
+ */
 function tsFormatTime(timestamp, format) {
 
     const formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
@@ -29,6 +29,31 @@ function tsFormatTime(timestamp, format) {
     return format;
 }
 
+
+/**获取当前系统时间 */
+function formatTime(date) {
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+
+    var hour = date.getHours()
+    var minute = date.getMinutes()
+    var second = date.getSeconds()
+
+    return [year, month, day].map(formatNumber2).join('-') + ' ' + [hour, minute, second].map(formatNumber2).join(':')
+}
+
+function formatNumber2(n) {
+    n = n.toString()
+    return n[1] ? n : '0' + n
+}
+
+function dafjeiafjewa(params) {
+    return '2022-03-10 09:01:06';
+}
+
 module.exports = {
-    tsFormatTime: tsFormatTime
+    tsFormatTime: tsFormatTime,
+    formatTime: formatTime,
+    dafjeiafjewa:dafjeiafjewa
 }

@@ -1,13 +1,12 @@
 // pages/login/index.js
 const app = getApp()
 var _countDownIntervalId = -1;
-import authCheck from "../../utils/auth"
 import request from "../../utils/request"
 Page({
   data: {
-    userName: '', //用户的真实姓名
+    userName: '', 
     qqNumber: '',
-    studentNumber: '', //学号
+    studentNumber: '', 
     time: '获取验证码',
     disabled: false,
     ischeckPhoneNumber: false,
@@ -17,7 +16,7 @@ Page({
     hasSendCode: false,
     countDownNum: 60,
     phoneNumber: "",
-    code: "", //手机验证码
+    code: "", 
     userInfo: ''
   },
   // 用户名

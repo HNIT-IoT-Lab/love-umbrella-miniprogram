@@ -5,7 +5,7 @@ Page({
   data: {
     userinfo: {},
     userStaticInfo: '', // 用户活动信息集合
-    miniProgramStaticInfo:[],//系统初始化数据
+    miniProgramStaticInfo: [], //系统初始化数据
     activityTotaltime: 0, //志愿总时长
     activityNumber: 0 //志愿总次数
   },
@@ -31,6 +31,16 @@ Page({
     this.getUserStaticInfo();
     //获取系统的静态数据
     this.getMiniProgramStaticInfo();
+    wx.getUserProfile({
+      desc: '获取用户头像',
+      success: res => {
+        console.log('获取信息成功：', res.userInfo);
+      },
+      fail: res => {
+        console.log('获取信息失败：', res);
+      }
+    })
+
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -66,19 +76,19 @@ Page({
   /**
    * 这里获取的是联系青协管理员的电话以及关于我们界面的数据
    */
-  getMiniProgramStaticInfo(){
+  getMiniProgramStaticInfo() {
     request({
       url: "miniProgram/getMiniProgramStaticInfo",
       method: "GET",
     }).then(
-      res=>{
-        if(res.code === 200){
+      res => {
+        if (res.code === 200) {
           this.setData({
-            miniProgramStaticInfo:res.data
+            miniProgramStaticInfo: res.data
           })
         }
       },
-      err=>{
+      err => {
         console.log(err);
       }
     )
@@ -86,26 +96,26 @@ Page({
   /**
    * 用户打电话给管理员
    */
-  callAdmin(){
+  callAdmin() {
     wx.makePhoneCall({
       phoneNumber: this.data.miniProgramStaticInfo.adminPhone,
     }).then(
-      res=>{
+      res => {
         console.log(res);
       },
-      err=>{
+      err => {
         console.log(err);
       }
     )
   },
-    /**val
+  /**val
    * 页面跳转到详情页面
    */
-  toContent(){
+  toContent() {
     console.log(this.data.miniProgramStaticInfo);
     let item = this.data.miniProgramStaticInfo.swiperVo;
     wx.navigateTo({
-      url: '../aboutQXList/aboutQXList?title='+item.title+"&summary="+item.summary+"&url="+item.url,
+      url: '../aboutQXList/aboutQXList?title=' + item.title + "&summary=" + item.summary + "&url=" + item.url,
     })
   }
 })

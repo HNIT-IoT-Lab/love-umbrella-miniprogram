@@ -1,5 +1,7 @@
 <!--pages/aboutQXList/aboutQXList.wxml-->
-<view class="body">
+<view class="main">
+  <!-- 背景图 -->
+  <image src="../../images/background2.png"></image>
   <!-- 图片部分 -->
   <view >
     <image class="image" src="{{url}}">
@@ -17,6 +19,12 @@
       <text user-select>{{summary}}</text>
     </view>
   </view>
-  <!-- 概述 -->
-
+  <!-- 底部版权声明 -->
+  <!-- 底部版权声明 -->
+  <view class="footer">
+    <view class="footerImage">
+      <image src="../../images/qxLogo.png" role="img"></image>
+    </view>
+    <view class="footerTitle">志愿人生、快乐一生，期待你的加入鸭！</view>
+  </view>
 </view>

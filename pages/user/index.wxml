@@ -1,3 +1,5 @@
+<view class="main">
+  <image src="../../images/background2.png"></image>
 <view class="user_info_wrap">
   <view wx:if="{{userinfo.avatarUrl}}" class="user_img_wrap">
     <image class="user_bg" src="{{userinfo.avatarUrl}}"></image>
@@ -11,7 +13,6 @@
   </view>
 </view>
 <view class="user_content">
-
   <view class="user_main">
     <!-- 历史足迹 -->
     <view class="history_wrap">
@@ -69,4 +70,5 @@
       <view class="buttomTitle">协家同德、开拓创新、志愿自愿、止于至善</view>
     </view>
   </view>
+</view>
 </view>

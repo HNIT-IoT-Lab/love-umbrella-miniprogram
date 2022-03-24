@@ -1,5 +1,45 @@
 /**index.wxss**/
 
+page {
+  background-color: #f1f1f1;
+}
+
+.main {
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+  
+}
+.main>image{
+  position: absolute;
+  width: 95%;
+  height: 100%;
+  z-index: -1;
+}
+
+.top {
+  position: relative;
+  margin-top: 8rpx;
+  height: 40%;
+}
+
+.top image {
+  height: 100%;
+}
+
+.swiper {
+  display: absolute;
+  width: 100%;
+  height: 400rpx;
+  overflow: hidden;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  /* 关键属性 */
+  transform: translateY(0); 
+  /* 可以简单调整圆点位置 */
+  line-height: 1rpx;  
+}
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -44,31 +84,33 @@ image{
  width:20rem;
   background-color: #F3F3F3
 }
-.floortitle{
-  display:flex;
-  height:34px;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 13px;
-  font-size:14px;
-  color:rgba(0,0,0,0.7);
-  border-bottom: 1px solid #e2e2e3
+.center{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
-.hotgoodcontainer{
-    display:flex;
-    flex-wrap: wrap;
-    width:100%;
+.center_title{
+  font-family: 'blod';
+  font-size: large;
+  font-weight: 100;
+  margin: 20rpx;
+  color: rgb(95, 94, 94);
 }
-.gooditem{
-    width:33.333333%;
+.center_item{
+    width:30.5%;
     display:flex;
+    margin: 10rpx;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     font-size:12px;
     box-sizing:border-box;
-    border: 0.5px solid #e2e2e3;
     padding-bottom:10px
+}
+.center_item_title{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .productimg{
    width:80px;
@@ -77,9 +119,13 @@ image{
 .imgview{
   width:80px;
   height:80px;
+  border-radius: 10rpx;
+}
+.imgview>image{
+  border-radius: 10rpx;
 }
 .myfont01{
-  color: "##ffffff";
+  color: "#ffffff";
 }
 .bottom{
   margin: auto;
