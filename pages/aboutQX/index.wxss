@@ -1,0 +1,167 @@
+/**index.wxss**/
+
+page {
+  background-color: #f1f1f1;
+}
+
+.main {
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+  
+}
+.main>image{
+  position: absolute;
+  width: 95%;
+  height: 100%;
+  z-index: -1;
+}
+
+.top {
+  position: relative;
+  margin-top: 8rpx;
+  height: 40%;
+}
+
+.top image {
+  height: 100%;
+}
+
+.swiper {
+  display: absolute;
+  width: 100%;
+  height: 400rpx;
+  overflow: hidden;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  /* 关键属性 */
+  transform: translateY(0); 
+  /* 可以简单调整圆点位置 */
+  line-height: 1rpx;  
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+/* swiper图片适应 */
+swiper{
+  width: 100%;
+  height: calc(150 vm * 5616 / 3744);
+}
+image{
+  width: 100%;
+}
+.menueview{
+  display:flex;
+  background-color:#FFF;
+  padding:5px 0
+}
+.menue-image{
+  flex:1;
+  height:50px;
+  height:auto
+}
+.separator{
+ height: 4px;
+ width:20rem;
+  background-color: #F3F3F3
+}
+.center{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.center_title{
+  font-family: 'blod';
+  font-size: large;
+  font-weight: 100;
+  margin: 20rpx;
+  color: rgb(95, 94, 94);
+}
+.center_item{
+    width:30.5%;
+    display:flex;
+    margin: 10rpx;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    font-size:12px;
+    box-sizing:border-box;
+    padding-bottom:10px
+}
+.center_item_title{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.productimg{
+   width:80px;
+   height:80px;
+}
+.imgview{
+  width:80px;
+  height:80px;
+  border-radius: 10rpx;
+}
+.imgview>image{
+  border-radius: 10rpx;
+}
+.myfont01{
+  color: "#ffffff";
+}
+.bottom{
+  margin: auto;
+}
+.foot{
+  width: 100%;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+/* 底部版权声明 */
+
+.footer {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+  margin-top: 30rpx;
+  text-align: center;
+}
+
+.footerImage {
+  display: inline-block;
+  margin-right: 12rpx;
+}
+
+.footerImage image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.footerTitle {
+  display: inline-block;
+  font-family: 'blod';
+  font-size: 30rpx;
+  padding-bottom: 20rpx;
+  text-align: center;
+  color: rgb(95, 94, 94);
+}

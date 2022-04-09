@@ -1,1 +1,10 @@
 /* pages/activity/activity.wxss */
+.nomore {
+  line-height: 60rpx;
+  height: 60rpx;
+  text-align: center;
+  position: relative;
+  font-size: 30rpx;
+  width: 100%;
+  color: #B3B3B3;
+}

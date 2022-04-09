@@ -1,6 +1,92 @@
 <!--pages/activity/activity.wxml-->
-<text>活动详情页面,当前活动ID：{{activityid}}</text>
 
-<view class="sign-up-btn" bindtap="signUpEvent">
-    报名
+<view class="container-box">
+    <scroll-view scroll-y="true">
+        <view class="primary-info-box">
+            <image src="{{activityInfo.activityImg}}" mode="widthFix"></image>
+            <view class="title">{{activityInfo.activityName}}</view>
+            <view class="item weui-flex">
+                <view class="left iconfont icon-activity">
+                    起始日期
+                </view>
+                <view class="weui-flex__item"></view>
+                <view class="right">
+                    {{activityInfo.startTime}} - {{activityInfo.endTime}}
+                </view>
+            </view>
+            <view class="item weui-flex">
+                <view class="left iconfont icon-coordinates">
+                    地址
+                </view>
+                <view class="weui-flex__item"></view>
+                <view class="right">
+                    {{activityInfo.activityAddress}}
+                </view>
+            </view>
+            <view class="item weui-flex">
+                <view class="left iconfont icon-people">
+                    负责人
+                </view>
+                <view class="weui-flex__item"></view>
+                <view class="right">
+                    {{activityInfo.contactName||''}}
+                </view>
+            </view>
+            <view class="item weui-flex"  bindtap="phoneCall" data-phonenumber="{{activityInfo.contactNumber||''}}">
+                <view class="left iconfont icon-mobilephone">
+                    点击拨打负责人电话
+                </view>
+                <view class="weui-flex__item"></view>
+                <view class="right">
+                    {{activityInfo.contactNumber||''}}
+                </view>
+            </view>
+        </view>
+
+        <view class="details-info-box">
+            <view class="title iconfont icon-document">活动详情</view>
+            <view class="text">{{activityInfo.description}}</view>
+        </view>
+
+        <view class="sign-up-info-box item weui-flex">
+            <view class="title iconfont icon-group">报名人数</view>
+            <view class="process">{{activityInfo.numberOfAttendees}}/{{activityInfo.numberOfNeed}}</view>
+        </view>
+
+        <view class="sign-up-info-box">
+            <view class="title iconfont icon-barrage">最新报名</view>
+            <view class="sign-up-list">
+                <view class="item" wx:for="{{signUpList}}" wx:key="index">
+                    <image mode="widthFix" src="{{item.avatar}}"></image>
+                    <view class="date">{{item.date}}</view>
+                </view>
+
+            </view>
+        </view>
+
+        <!-- 活动还未开始 -->
+        <view wx:if="{{activityInfo.status === '01' && alreadySignUp}}" class="btn weui-btn_default" bindtap="cancelEvent">取消报名</view>
+        <view wx:elif="{{activityInfo.status === '01' && activityInfo.numberOfAttendees === activityInfo.numberOfNeed}}" class="btn weui-btn_default  weui-btn_disabled">名额已满</view>
+        <view wx:elif="{{activityInfo.status === '01' && !alreadySignUp}}" class="btn sign-up-btn weui-btn_default" bindtap="signUpEvent">我要报名</view>
+
+        <!-- 活动正在进行中 -->
+        <view wx:elif="{{activityInfo.status === '00' && !alreadySignUp}}" class="btn weui-btn_default  weui-btn_disabled">未报名</view>
+        <view wx:elif="{{activityInfo.status === '00' && alreadySignUp && hasSignIn}}" class="btn weui-btn_default  weui-btn_disabled">已签到</view>
+        <view wx:elif="{{activityInfo.status === '00' && alreadySignUp && !hasSignIn}}" class="btn sign-in-btn weui-btn_default" bindtap="signInEvent" data-activityId="{{activityInfo.id}}">扫码签到</view>
+
+        <!-- 活动已结束 -->
+        <view wx:else="{{activityInfo.status === '02'}}" class="btn weui-btn_default  weui-btn_disabled">已结束</view>
+
+    </scroll-view>
+</view>
+
+
+
+
+<view>
+    <view class="weui-toast" wx:if="{{showToast}}">
+        <i wx:if="{{state=='success'}}" class="weui-icon_toast weui-icon-success-no-circle"></i>
+        <i wx:else class="weui-icon_toast weui-icon-warn"></i>
+        <p class="weui-toast__content">{{toastMessage}}</p>
+    </view>
 </view>

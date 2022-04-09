@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class="main">
+  <image src="../../images/background2.png"></image>
+  <view class="top">
+    <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for-items="{{swiper_list}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{item.url}}" mode="widthFix" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view>
+    <view class='center_title'>计算机青协志愿活动</view>
+  </view>
+  <view class='center'>
+    <view class='center_item' wx:for="{{content_list}}" wx:key="*this" bindtap="toContent" data-item="{{item}}">
+      <view class='imgview'>
+        <image class='productimg' src='{{item.url}}' />
+      </view>
+      <view class="center_item_title">{{item.title}}</view>
+    </view>
+  </view>
+  <view>
+  </view>
+</view>
+<view class="bottom">
+  <view class="foot">
+    如果你也想参加我们计算机青协的活动
+  </view>
+  <view class="foot">你可以志愿活动页面中报名参加</view>
+  <view class="foot">期待和你一起参加志愿活动</view>
+  <!-- 底部版权声明 -->
+  <view class="footer">
+    <view class="footerImage">
+      <image src="../../images/qxLogo.png" role="img"></image>
+    </view>
+    <view class="footerTitle">予人玫瑰，手有余香，做一名快乐的志愿者</view>
+  </view>
+</view>

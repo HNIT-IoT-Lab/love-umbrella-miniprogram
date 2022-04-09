@@ -1,13 +1,146 @@
 /* pages/activity/activity.wxss */
-.sign-up-btn {
-    width: 100vw;
-    height: 90rpx;
-    line-height: 90rpx;
-    font-size: 60rpx;
+.btn {
+    width: 710rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
     text-align: center;
-    background: red;
+    border-radius: 50rpx;
+    margin-top: 20rpx;
+    margin-bottom: 10px;
+    margin-left: 20rpx;
+}
+
+.sign-up-btn {
+    background: #f96b67;
     color: white;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+}
+
+.sign-in-btn {
+    background: #f96b67;
+    color: white;
+}
+
+.container-box {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction:column;
+}
+
+.container-box scroll-view {
+    flex: 1;
+    height: 1px;
+}
+
+.primary-info-box {
+    width: 710rpx;
+    background-color: #fefefe;
+    margin-left: 20rpx;
+    border-radius: 5rpx;
+    margin-top: 20rpx;
+    padding-bottom: 15rpx;
+
+}
+
+.primary-info-box image {
+    border-radius: 5rpx;
+    width: 100%;
+}
+
+.primary-info-box .title {
+    line-height: 35rpx;
+    font-size: 35rpx;
+    font-weight: 800;
+    margin: 10rpx;
+    margin-bottom: 20rpx;
+}
+
+.primary-info-box .item {
+    font-size: 25rpx;
+    margin-top: 20rpx;
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+}
+
+.primary-info-box .item .left {
+    color: #a5a5a5;
+}
+
+.primary-info-box .item .right {
+    margin-left: auto;
+    text-align: right;
+    padding-right: 15rpx;
+}
+
+.details-info-box {
+    width: 710rpx;
+    background-color: #fefefe;
+    margin-left: 20rpx;
+    border-radius: 5rpx;
+    margin-top: 20rpx;
+    padding: 6rpx;
+}
+
+.details-info-box .title {
+    line-height: 35rpx;
+    font-size: 35rpx;
+    font-weight: 800;
+    margin: 10rpx;
+    margin-bottom: 20rpx;
+    color: #8cd7d3;
+}
+
+.details-info-box .text {
+    font-size: 28rpx;
+    margin-left: 10rpx;
+}
+
+.sign-up-info-box {
+    width: 710rpx;
+    background-color: #fefefe;
+    margin-left: 20rpx;
+    border-radius: 5rpx;
+    margin-top: 20rpx;
+    padding: 6rpx;
+}
+
+.sign-up-info-box .title{
+    line-height: 35rpx;
+    font-size: 35rpx;
+    font-weight: 800;
+    margin: 15rpx;
+    margin-bottom: 20rpx;
+    color: #8cd7d3;
+}
+
+.sign-up-info-box .process {
+    margin: 15rpx;
+    margin-left: auto;
+}
+
+.sign-up-list {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.sign-up-list .item {
+    width: 20%;
+    text-align: center;
+}
+
+.sign-up-list .item image{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.sign-up-list .item .date{
+    width: 100rpx;
+    font-size: 18rpx;
+    text-align: center;
+    margin-left: 20rpx;
 }

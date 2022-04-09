@@ -3,16 +3,30 @@
     display: flex;
     flex-direction: row;
     width: 100vw;
+    color: #9da0a2;
+    font-size: 33rpx;
 }
 
 .navbar .item {
     flex: 1;
     text-align: center;
-    height: 60rpx;
-    padding-top: 10rpx;
+    height: 90rpx;
+    line-height: 90rpx;
 }
 
 .activity {
     font-weight: 1000;
-    background-color: gray;
+    position: relative;
+    color: black;
+    font-size: 35rpx;
+}
+
+.activity::after {
+    content: '';
+    position: absolute;
+    height: 5rpx;
+    left: 80rpx;
+    width: 90rpx;
+    background-color: #eb4450;
+    bottom: 0;
 }

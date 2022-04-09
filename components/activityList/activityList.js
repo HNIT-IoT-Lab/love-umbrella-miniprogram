@@ -1,5 +1,12 @@
 // components/activityList/activityList.js
 Component({
+
+    options: {    /**
+        * 使用全局样式
+        */
+        addGlobalClass: true
+    },
+
     /**
      * 组件的属性列表
      */

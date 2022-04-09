@@ -1,39 +1,59 @@
 {
     "pages": [
-        "pages/activities/activities",
         "pages/home/home",
+        "pages/activities/activities",
         "pages/center/center",
         "pages/authorize/authorize",
         "pages/activity/activity",
-        "pages/telform/telform"
+        "pages/telform/telform",
+        "pages/user/index",
+        "pages/aboutQX/index",
+        "pages/login/index",
+        "pages/borrowUmbrella/index",
+        "pages/aboutQXList/aboutQXList",
+        "pages/umbrella_records/records",
+        "pages/Activity_records/records"
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "Weixin",
-        "navigationBarTextStyle": "black"
+        "navigationBarBackgroundColor": "#eb4450",
+        "navigationBarTitleText": "青年志愿者服务平台",
+        "enablePullDownRefresh": true,
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#cccccc"
     },
     "style": "v2",
     "sitemapLocation": "sitemap.json",
     "tabBar": {
+        "color": "#999",
+        "selectedColor": "#ff2d4a",
+        "backgroundColor": "#fafafa",
+        "position": "bottom",
+        "borderStyle": "black",
         "list": [
             {
                 "pagePath": "pages/home/home",
                 "text": "首页",
-                "iconPath": "./images/icon1-1.png",
-                "selectedIconPath": "./images/icon1-2.png"
+                "iconPath": "icons/home.png",
+                "selectedIconPath": "icons/home-o.png"
             },
             {
                 "pagePath": "pages/activities/activities",
                 "text": "志愿活动",
-                "iconPath": "./images/icon2-1.png",
-                "selectedIconPath": "./images/icon2-2.png"
+                "iconPath": "icons/category.png",
+                "selectedIconPath": "icons/category-o.png"
             },
             {
-                "pagePath": "pages/center/center",
+                "pagePath": "pages/aboutQX/index",
+                "text": "关于青协",
+                "iconPath": "icons/1.jpg",
+                "selectedIconPath": "icons/1-o.jpg"
+            },
+            {
+                "pagePath": "pages/user/index",
                 "text": "我的",
-                "iconPath": "./images/icon3-1.png",
-                "selectedIconPath": "./images/icon3-2.png"
+                "iconPath": "icons/my.png",
+                "selectedIconPath": "icons/my-o.png"
             }
         ]
     }

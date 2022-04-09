@@ -1,0 +1,25 @@
+<view class="main">
+  <image src="../../images/background.jpg"></image>
+  <view class="head">
+    <text class="head_warningFont">借伞须知：</text>
+    <text class="head_content">
+    1、借伞/还伞开锁时间为十秒钟，请小主抓点紧哦😉
+    2、锁机会在开锁十秒钟后关闭，请等锁机关闭后再离开
+    3、借伞时间不能超过两天，请按时归还😘</text>
+  </view>
+  <view>
+    <view class="border">
+      <button class="goodbutton hover" bindtap="borrowUmbrella">扫码借伞</button>
+    </view>
+    <view class="border">
+      <button class="goodbutton hover" bindtap="returnUmbrella">扫码还伞</button>
+    </view>
+  </view>
+  <!-- 底部提示框 -->
+  <view class="chatRoom">
+    <image src="../../images/talkBackgroud.png"></image>
+    <text>
+      {{content}}
+    </text>
+  </view>
+</view>

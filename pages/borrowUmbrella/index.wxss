@@ -1,0 +1,93 @@
+/* view{
+ 使用主题颜色 
+  color: var(--themeColor);
+} */
+.main {
+  overflow: hidden;
+  position: fixed;
+  margin: 0;
+  background-size: 100% 200%;
+  width: 100%;
+  height: 100%;
+}
+.main>image{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.head{
+  margin: 50rpx 0 0 40rpx;
+}
+
+.head_warningFont{
+  font-size: 40rpx;
+  color: #eb4450;
+  font-family: 'blod';
+}
+.head_content{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.border{
+  display: block;
+  margin: 100rpx;
+}
+
+.borrow{
+  display: block;
+  width: 100rpx;
+  height: 200rpx;
+  
+}
+
+/* border-radius: 98rpx;是控制按钮边变圆 */
+.goodbutton {
+  margin-top: 30px;
+  width: 80%;
+  background-color: rgb(252, 126, 67);
+  color: white;
+  border-radius: 98rpx;
+  background: bg_red;
+  z-index: 3;
+}
+
+ 
+/* 按下变颜色 */
+.goodbutton:hover{
+  top: 3rpx;
+  background:  rgb(236, 179, 156);
+}
+
+/* 底部 */
+.chatRoom{
+  position: relative;
+  /* top: 30%; */
+  bottom: 1%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+  height: 50%;
+  /* background-color: palevioletred; */
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.chatRoom image{
+    width:100%;
+    height:120%;
+}
+.chatRoom text{
+  position: absolute;
+  left: 50%;
+  top:45%;
+  transform: translate(-45%,-50%);
+  font-size: 32px;
+  color: #3cba92;
+  font-weight: 300;
+  font-family: 'blod';
+}

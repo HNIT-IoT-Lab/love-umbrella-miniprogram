@@ -1,4 +1,17 @@
 /**app.wxss**/
+
+/* icon */
+@import "./styles/iconfont.wxss";
+@import "./styles/volunteerIconfont.wxss";
+@import "./styles/activity.wxss";
+/* 全局引入微信组件的样式 */
+@import  './miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+/* 全局引入字体 */
+/* 字体封装 */
+@font-face {
+  font-family: "blod";
+  src: url('https://static.heytea.com/taro_trial/v1/font/WenYue-XinQingNianTi-NC-W8_1.otf');
+}
 .container {
   height: 100%;
   display: flex;
@@ -7,4 +20,18 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
+
+/* 在微信小程序中不支持 '*' 通配符，所以需要写所有的标签来消除内边距 */
+page,view,text,swiper,swiper-item,image,navigator{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 主题颜色 */
+page{
+  --themeColor:#eb4450;
+  /* 统一字体大小  1px=2rpx */
+  font-size: 28rpx;
+}
