@@ -1,6 +1,6 @@
 /* pages/user/index.wxss */
 page {
-  background-color: #edece8;
+  background-color: #e6e7ee;
 }
 
 /* 字体封装 */
@@ -19,7 +19,7 @@ page {
 .user_info_wrap {
   height: 45vh;
   overflow: hidden;
-  background-color: var(--themeColor);
+  background-color: #e6e7ee;
   position: relative;
 }
 
@@ -48,7 +48,7 @@ page {
 }
 
 .user_info_wrap .user_img_wrap .user_info .user_name {
-  color: #fff;
+  color: var(--themeColor);
   margin-top: 40rpx;
 }
 
@@ -57,8 +57,8 @@ page {
   left: 50%;
   transform: translateX(-50%);
   top: 40%;
-  border: 1rpx solid greenyellow;
-  color: greenyellow;
+  /* border: 1rpx solid greenyellow;
+  color: greenyellow; */
   font-size: 38rpx;
   padding: 30rpx;
   border-radius: 10rpx;
@@ -82,7 +82,7 @@ page {
   display: flex;
   margin-top: -10px;
   border-radius: 5px;
-  background-color: #fff;
+  /* background-color: var(--themeColor); */
 }
 
 .user_content .user_main .history_wrap navigator {
@@ -98,15 +98,15 @@ page {
 }
 
 .his_num{
-  color:#eb4450 ;
+  color:#31344b ;
 }
 
 .user_content .user_main .history_wrap navigator .his_num {
-  color: var(--themeColor);
+  color: #31344b;
 }
 
 .user_content .user_main .orders_wrap {
-  background-color: #fff;
+  /* background-color: var(--themeColor); */
   margin-top: 30rpx;
   border-radius: 5px;
 }
@@ -127,19 +127,19 @@ page {
 }
 
 .user_content .user_main .orders_wrap .order_content navigator .iconfont {
-  color: var(--themeColor);
+  /* color: var(--themeColor); */
   font-size: 40rpx;
 }
 
 .user_content .user_main .address_wrap {
   margin-top: 3rpx;
-  background-color: #fff;
+  background-color: var(--themeColor);
   padding: 20rpx;
 }
 
 .user_content .user_main .app_info_wrap {
   margin-top: 4rpx;
-  background-color: #fff;
+  background-color: var(--themeColor);
 }
 
 .user_content .user_main .app_info_wrap .app_info_item {
@@ -154,7 +154,7 @@ page {
 
 .user_content .user_main .recommend_wrap {
   margin-top: 30rpx;
-  background-color: #fff;
+  background-color: var(--themeColor);
   padding: 20rpx;
 }
 /* 自定义按钮样式 */
@@ -166,7 +166,7 @@ page {
   width: 100% !important;
   color: #666 !important;
   font-size: 30rpx !important;
-  background-color: #fff !important;
+  background-color: var(--themeColor) !important;
   text-align: left;
 }
 
@@ -200,4 +200,12 @@ page {
   text-align: center;
 }
 
+.card {
+  margin-bottom: 1.5rem;
+  box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px var(--themeColor) !important;
+  border: .0625rem solid #d1d9e6;
+  border-radius: .55rem;
+  background-color: #e6e7ee;
+  overflow: hidden;
+}
 

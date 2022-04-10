@@ -1,10 +1,10 @@
 <!--pages/home/home.wxml-->
 <view class="main">
     <image src="../../images/background2.png"></image>
-    <view class="top">
+    <view class="top card">
         <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" class="swiper">
             <swiper-item wx:for="{{swiper_list}}" wx:key="index">
-            <!-- scroll-view 是为了解决swiper-item默认高度只有150px的问题 -->
+                <!-- scroll-view 是为了解决swiper-item默认高度只有150px的问题 -->
                 <scroll-view scroll-y="true" class="scroll">
                     <image src="{{item.url}}" mode="widthFix" style="width: 750rpx;"></image>
                 </scroll-view>
@@ -12,14 +12,51 @@
         </swiper>
     </view>
     <view class="center">
-        <view class="center_up">
-            <view class="center_up_title">🚩计算机青协简介🚩</view>
-            <view class="center_up_content">✋✋湖工计算机青协全称湖南工学院计算机科学与工程学院青年志愿者协会，<text class="code">成立于2005年</text>，是由一群志愿从事社会公益活动与社会保障事业的同学👦👩组成的团体，通过组织和指导全院青年志愿服务活动🎁，为经济特别困难以及其他需要帮助的社会成员提供服务💖💖。协会自创办以来一直秉承着<text class="code">“奉献、友爱、互助、进步”</text>这一宗旨😊，始终奉行<text class="code">“志愿、奉献、务实、互助、持久”</text>的原则😄，发扬<text class="code">“助人为乐、吃苦耐劳”</text>的精神😘，积极开展有益于同学、学校、社会的公益活动。</view>
-        </view>
-        <view class="center_dowm" bindtap="borrowUmbrella">
+        <view class="card" bindtap="borrowUmbrella">
             <view class="center_dowm_title">爱心雨伞租借</view>
-            <view class="center_dowm_content">小主😜，不要怕，雨💦在下，伞🌂在手，爱💖在心中能长久</view>
+            <view class="center_dowm_content">
+                <text>小主😜，不要怕，雨💦在下，伞🌂在手
+                    爱💖在心中能长久
+                </text>
+            </view>
+            <view style="padding: 1.5rem 2rem;">
+                <view class="botton"> 点我借伞 </view>
+            </view>
         </view>
+
+
+        <view class="card">
+            <view class="center_up_title" bindtap="cardTraggle">🚩计算机青协简介🚩</view>
+            <view class="far" bindtap="cardTraggle">
+                🗓️ 15 October 2021⬇️⬇️⬇️
+            </view>
+            <view class="{{card_style_name}}">
+                <text>✋✋
+                    湖工计算机青协
+                    全称
+                    湖南工学院
+                    计算机科学与工程学院青年志愿者协会<text class="code">
+                        成立于2005年</text>
+                    是由一群
+                    志愿从事社会公益活动
+                    &社会保障事业的同学👦👩 组成的团体
+                    通过组织和指导全院青年志愿服务活动🎁
+                    为经济特别困难
+                    以及其他需要帮助的社会成员提供服务💖💖
+                    协会自创办以来一直秉承着
+                    <text class="code">“奉献、友爱、互助、进步”</text>这一宗旨😊
+                    始终奉行
+                    <text class="code">“志愿、奉献、务实、互助、持久”</text>的原则
+                    😄发扬
+                    <text class="code">“助人为乐、吃苦耐劳”</text>的精神😘
+                    积极开展有益于同学、学校、社会的公益活动。
+                </text>
+                <view class="far" style="margin: 1rem;" bindtap="cardTraggle">
+                🗓️ 15 April 2022⬆️⬆️⬆️
+            </view>
+            </view>
+        </view>
+
     </view>
     <!-- 隔墙法清除浮动 -->
     <view style="clear:both"></view>

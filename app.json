@@ -15,12 +15,12 @@
         "pages/Activity_records/records"
     ],
     "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#eb4450",
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#e6e7ee",
         "navigationBarTitleText": "青年志愿者服务平台",
         "enablePullDownRefresh": true,
-        "navigationBarTextStyle": "white",
-        "backgroundColor": "#cccccc"
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#e6e7ee"
     },
     "style": "v2",
     "sitemapLocation": "sitemap.json",
