@@ -8,14 +8,14 @@
       <view class="user_name">{{userinfo.nickName}}</view>
     </view>
   </view>
-  <view wx:else class="user_btn">
+  <view wx:else class="user_btn card">
     <navigator url="/pages/authorize/authorize">登录</navigator>
   </view>
 </view>
 <view class="user_content">
   <view class="user_main">
     <!-- 历史足迹 -->
-    <view class="history_wrap">
+    <view class="history_wrap card">
       <view class="his_parent">
         <view class="his_num">{{activityTotaltime}}</view>
         <view class="his_name">志愿总时长</view>
@@ -26,7 +26,7 @@
       </view>
     </view>
     <!-- 我的历史记录 -->
-    <view class="orders_wrap">
+    <view class="orders_wrap card">
       <view class="orders_title">我的历史记录</view>
       <view class="order_content">
         <navigator url="/pages/Activity_records/records">
@@ -34,7 +34,7 @@
           <view class="order_name">活动记录</view>
         </navigator>
         <navigator url="/pages/umbrella_records/records">
-          <view class="volunteerIconfont icon-shenghuoyongpin-" style="color: #eb4450;"></view>
+          <view class="volunteerIconfont icon-shenghuoyongpin-"></view>
           <view class="order_name">借伞记录</view>
         </navigator>
         <!-- <navigator url="/pages/order/index?type=3">
@@ -44,6 +44,7 @@
       </view>
     </view>
     <!-- 其他功能 -->
+  <view class="card">
     <view class="address_wrap">
       <button open-type="feedback" class="btn hover">意见反馈</button>
     </view>
@@ -61,6 +62,7 @@
       </view>
       <view class="app_info_item" bindtap="toContent">关于我们</view>
     </view>
+  </view>
 
     <!-- 底部版权声明 -->
     <view class="buttom">

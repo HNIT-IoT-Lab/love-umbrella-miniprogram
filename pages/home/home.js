@@ -2,11 +2,11 @@
 import request from "../../utils/request"
 
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
+        card_style_name: 'center_up_content',
         swiper_list: [],
         storePath: 'qxImages/categoryImages0/',
         defaultList: [{
@@ -140,5 +140,21 @@ Page({
         wx.navigateTo({
             url: '../borrowUmbrella/index'
         })
+    },
+
+    //卡片展开
+    cardTraggle() {
+        console.log('---');
+        console.log(this.data.card_style_name);
+        if (this.data.card_style_name === 'center_up_content traggle') {
+            this.setData({
+                card_style_name: 'center_up_content'
+            })
+        } else {
+            this.setData({
+                card_style_name: 'center_up_content traggle'
+            })
+        }
+
     }
 })

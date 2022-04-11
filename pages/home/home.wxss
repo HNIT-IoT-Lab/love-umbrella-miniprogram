@@ -1,16 +1,17 @@
 /* pages/home/home.wxss */
 
 page {
-  background-color: #f1f1f1;
+  background-color: #e6e7ee;
 }
 
 .main {
   width: 95%;
   height: 100%;
   margin: 0 auto;
-  
+
 }
-.main>image{
+
+.main>image {
   position: absolute;
   width: 95%;
   height: 100%;
@@ -19,13 +20,16 @@ page {
 
 .top {
   position: relative;
-  margin-top: 8rpx;
+  margin-top: 0.5rem;
   height: 40%;
+  border: none !important;
+  /* padding: 0.5rem; */
 }
 
 .top image {
   height: 100%;
 }
+
 /* 设置轮播图界面始终占界面的40% */
 
 .swiper {
@@ -36,24 +40,30 @@ page {
   border-radius: 8rpx;
   box-sizing: border-box;
   /* 关键属性 */
-  transform: translateY(0); 
+  transform: scale(1.01);
   /* 可以简单调整圆点位置 */
-  line-height: 1rpx;  
+  line-height: 1rpx;
+
 }
-.scroll{
+
+.scroll {
   height: 100%;
 }
+
 /*  页面css添加下边样式 */
-::-webkit-scrollbar{
-    width: 0;
-    height: 0;
-    color: transparent;
-    display:none;
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
 }
 
 .center {
   margin-top: 10rpx;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
 }
 
 .center_up {
@@ -76,6 +86,15 @@ page {
   box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
 }
 
+.card {
+  margin-bottom: 1.5rem;
+  box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #fff !important;
+  border: .0625rem solid #d1d9e6;
+  border-radius: .55rem;
+  background-color: #e6e7ee;
+  overflow: hidden;
+}
+
 .center_up_title {
   font-family: 'blod';
   font-size: 24px;
@@ -87,9 +106,23 @@ page {
 }
 
 .center_up_content {
-  margin: 12rpx;
+  overflow: hidden;
+  text-align: center;
+  margin: 1rem;
   font-family: 'Arial, Helvetica, sans-serif';
   font-size: 31rpx;
+  color: #31344b;
+  line-height: 1.75rem;
+  height: 0;
+  transform: translateY(-50%);
+  transition: 0.3s;
+}
+
+.traggle{
+  transform: translateY(0);
+  transition: .3s;
+
+  height: auto;
 }
 
 .center_dowm_title {
@@ -97,14 +130,16 @@ page {
   font-family: 'blod';
   font-size: 24px;
   font-weight: 200;
-  margin: 10rpx;
-  margin-bottom: 20rpx;
+  margin-top: 1rem;
   color: #ef5862;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 .center_dowm_content {
-  margin: 12rpx;
+  text-align: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
   font-family: 'Arial, Helvetica, sans-serif';
   font-size: 31rpx;
 }
@@ -117,13 +152,29 @@ page {
   font-family: Monaco;
 }
 
-.botton {}
+.botton {
+  text-align: center;
+  border: .0625rem solid transparent;
+  padding: .55rem .95rem;
+  position: relative;
+  transition: box-shadow 300ms ease;
+  /* letter-spacing: .025em; */
+  font-size: 1rem;
+  border-color: #d1d9e6;
+  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
+  line-height: 1.5;
+  border-radius: .55rem;
+}
+
+.botton:active {
+  box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF;
+}
 
 /* 底部版权声明 */
 
 .footer {
   position: absolute;
-  margin-top: 30rpx;
+  margin-top: -30rpx;
   left: 50%;
   transform: translate(-50%, 0);
   text-align: center;
@@ -146,4 +197,14 @@ page {
   padding-bottom: 20rpx;
   text-align: center;
   color: rgb(95, 94, 94);
+}
+
+.far {
+  text-align: center;
+  font-size: 80%;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  color: #44476a;
 }

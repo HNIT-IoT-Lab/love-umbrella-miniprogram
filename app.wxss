@@ -31,7 +31,8 @@ page,view,text,swiper,swiper-item,image,navigator{
 
 /* 主题颜色 */
 page{
-  --themeColor:#eb4450;
+  /* --themeColor:#eb4450; */
+  --themeColor:#e6e7ee;
   /* 统一字体大小  1px=2rpx */
   font-size: 28rpx;
 }
