@@ -42,7 +42,7 @@ Page({
         //扫码提示声
         that.data.innerAudioContex ? that.data.innerAudioContex.play() : ''
         //扫码成功执行回调函数
-        if (res.result !== "helloloveUmbrella") {
+        if (res.result !== "https://cdn.fengxianhub.top/eureka-static/tishi/index.html") {
           wx.showModal({
             title: '提示',
             content: '二维码错误',
@@ -91,6 +91,7 @@ Page({
       method: 'GET'
     }).then(res => {
       //让加载框消失
+      console.log(res);
       wx.hideLoading()
       if (res.code === 200) {
         wx.showModal({
@@ -111,7 +112,7 @@ Page({
       } else {
         wx.showModal({
           title: '提示',
-          content: '爱心雨伞借取失败\n服务器异常',
+          content: res.message||'爱心雨伞借取失败\n服务器异常',
         })
       }
     }).catch(err => {
@@ -176,7 +177,7 @@ Page({
       } else {
         wx.showModal({
           title: '提示',
-          content: '爱心雨伞借取失败\n服务器异常',
+          content: res.message||'爱心雨伞借取失败\n服务器异常',
         })
       }
     }).catch(err => {

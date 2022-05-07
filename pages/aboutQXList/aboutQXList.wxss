@@ -74,7 +74,7 @@
   display: inline-block;
   font-family: 'blod';
   font-size: 30rpx;
-  padding-bottom: 20rpx;
+  margin-bottom: 100rpx;
   text-align: center;
   color: rgb(95, 94, 94);
 }

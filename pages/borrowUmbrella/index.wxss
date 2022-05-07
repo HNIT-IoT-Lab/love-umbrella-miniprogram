@@ -59,7 +59,7 @@
 
  
 /* 按下变颜色 */
-.goodbutton:hover{
+.goodbutton:active{
   top: 3rpx;
   background:  rgb(236, 179, 156);
 }
