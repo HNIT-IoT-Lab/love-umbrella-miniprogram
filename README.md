@@ -8,13 +8,29 @@
 
 软件部分基于`微信小程序 + SpringBoot + Vue技术`搭建，支持用户通过小程序端借取/归还，通过小程序报名志愿活动。项目包括微信小程序，管理后台。基于Java后端，已功能闭环，且正式投入生产使用，是已达到生产标准的一套项目体系。
 
+>项目介绍地址：https://cdn.fengxianhub.top/eureka-static/love-umbrella-resources/love-umbrella.html
+
 ## 技术栈
 
-![爱心雨伞技术栈](https://gitee.com/fengxian_duck/resources/raw/master/202203091444446.png)
+SpringCloud版本：
+
+技术栈
+
+<img src="https://cdn.fengxianhub.top/resources-master/202207010821960.png" alt="爱心雨伞微服务版" style="zoom: 8%;" />
+
+集群规划：
+
+<img src="https://cdn.fengxianhub.top/resources-master/202207010824147.png" alt="青年志愿者平台微服务版" style="zoom:50%;" />
+
+
+
+SpringBoot版本：
+
+![爱心雨伞技术栈](https://cdn.fengxianhub.top/resources-master/202203091444446.png)
 
 ##  小程序体验码
 
-![gh_0fa38fab852f_258 ](https://gitee.com/fengxian_duck/resources/raw/master/202203091446892.jpg)
+![gh_0fa38fab852f_258 ](https://cdn.fengxianhub.top/resources-master/202203091446892.jpg)
 
 
 
@@ -48,17 +64,17 @@
 
 ## 后台管理界面演示图
 
-| <img src="https://gitee.com/fengxian_duck/resources/raw/master/202203091533745.png" style="zoom:60%;"></img> |
+| <img src="https://cdn.fengxianhub.top/resources-master/202203091533745.png" style="zoom:60%;"></img> |
 | :----------------------------------------------------------: |
-| <img src="https://gitee.com/fengxian_duck/resources/raw/master/202203091535915.png" style="zoom:60%;"></img> |
-| <img src="https://gitee.com/fengxian_duck/resources/raw/master/202203091535038.png" style="zoom:60%;"></img> |
-| <img src="https://gitee.com/fengxian_duck/resources/raw/master/202203091536021.png" style="zoom:60%;"></img> |
+| <img src="https://cdn.fengxianhub.top/resources-master/202203091535915.png" style="zoom:60%;"></img> |
+| <img src="https://cdn.fengxianhub.top/resources-master/202203091535038.png" style="zoom:60%;"></img> |
+| <img src="https://cdn.fengxianhub.top/resources-master/202203091536021.png" style="zoom:60%;"></img> |
 
-<img src="https://gitee.com/fengxian_duck/resources/raw/master/202203091538155.png" style="zoom:60%;"></img>
+<img src="https://cdn.fengxianhub.top/resources-master/202203091538155.png" style="zoom:60%;"></img>
 
 
 
-![image-20220309153856610](https://gitee.com/fengxian_duck/resources/raw/master/202203091538838.png)
+![image-20220309153856610](https://cdn.fengxianhub.top/resources-master/202203091538838.png)
 
 
 
